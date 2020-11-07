@@ -1,0 +1,24 @@
+name: PEP Analysis
+on: [ pull_request ]
+
+jobs:
+  qa:
+    name: Quality Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Python
+        uses: actions/setup-python@master
+        with:
+          python-version: 3.9
+      # - name: Run Unit Tests
+      #  run: |
+      #    pip install pytest
+      #    pytest
+      - name: Wemake Python Styleguide
+        uses: wemake-services/wemake-python-styleguide@0.13.4
+        continue-on-error: true
+        with:
+          reporter: 'github-pr-review'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

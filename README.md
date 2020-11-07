@@ -4,6 +4,7 @@
 
 ![MIT](https://img.shields.io/badge/license-MIT-green)
 ![GitHub Org's stars](https://img.shields.io/github/stars/pyvoice?style=social)
+[![CodeFactor](https://www.codefactor.io/repository/github/pyvoice/pyvoice/badge)](https://www.codefactor.io/repository/github/pyvoice/pyvoice)
 
 ## Sobre
 
