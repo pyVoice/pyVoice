@@ -1,5 +1,5 @@
 name: PEP Analysis
-on: [ pull_request ]
+on: [ push, pull_request ]
 
 jobs:
   qa:
@@ -10,7 +10,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@master
         with:
-          python-version: 3.9
+          python-version: 3.9.1
       # - name: Run Unit Tests
       #  run: |
       #    pip install pytest
