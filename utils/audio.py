@@ -46,16 +46,9 @@ def speak(audio_string):
     :rtype:
     """
     tts = gTTS(text=audio_string, lang=settings.LANGUAGE)
-    r = random.randint(1, 100000)
-    audio_file = 'audio-' + str(r) + '.mp3'
-
-    # temporary fix for library error (see https://github.com/pndurette/gTTS/issues/232)
-    while True:
-        try:
-            tts.save(audio_file)
-            break
-        except:
-            print('Ocorreu um erro ao guardar o ficheiro de voz.')
+    random_int = random.randint(1, 100000)
+    audio_file = 'audio-' + str(random_int) + '.mp3'
+    tts.save(audio_file)
 
     playsound.playsound(audio_file)
 
