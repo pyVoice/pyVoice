@@ -5,9 +5,7 @@ import playsound
 import speech_recognition as sr
 from gtts import gTTS
 
-from config import settings
-
-# from gtts import gTTS
+from src.config import settings
 
 r = sr.Recognizer()
 

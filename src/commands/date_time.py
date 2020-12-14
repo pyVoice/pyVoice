@@ -1,6 +1,6 @@
 import datetime
 
-from utils.audio import speak
+from src.utils.audio import speak
 
 
 class DateTimeCommands:
