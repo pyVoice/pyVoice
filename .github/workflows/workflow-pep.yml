@@ -21,7 +21,6 @@ jobs:
       #    pytest
       - name: Wemake Python Styleguide
         uses: wemake-services/wemake-python-styleguide@0.14.1
-        run: ls -la
         continue-on-error: true
         with:
           reporter: 'github-pr-review'
