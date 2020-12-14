@@ -1,6 +1,10 @@
 name: PEP Analysis
 on: [ push, pull_request ]
 
+defaults:
+  run:
+    working-directory: ./src
+
 jobs:
   qa:
     name: Quality Check
@@ -17,6 +21,7 @@ jobs:
       #    pytest
       - name: Wemake Python Styleguide
         uses: wemake-services/wemake-python-styleguide@0.14.1
+        run: ls -la
         continue-on-error: true
         with:
           reporter: 'github-pr-review'
