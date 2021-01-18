@@ -1,7 +1,7 @@
 # general settings
-LANGUAGE = 'pt'
-LANGUAGE_GOOGLE = 'pt-PT'  # google does not like our default format :(
+LANGUAGE = 'pt'  # Possible values = pt, en
+LANGUAGE_GOOGLE = 'pt-PT'  # Possible values = pt-PT, en-US
 WAKE_WORD = 'alexis'
 
 # development/advanced settings
-MODE = 'dev'
+MODE = 'dev'  # Possible values = dev, prod
