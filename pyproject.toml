@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "pyvoice"
+version = "0.0.1"
+description = "Assistente pessoal, controlado por voz"
+authors = ["Afonso Santos <afonso.faisca1@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.25.1"
+wheel = "^0.36.2"
+pyaudio = {path = "wheels/PyAudio-0.2.11-cp39-cp39-win_amd64.whl"}
+gTTS = "^2.2.1"
+SpeechRecognition = "^3.8.1"
+playsound = "^1.2.2"
+beautifulsoup4 = "^4.9.3"
+pypiwin32 = "^223"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.8.4"
+autopep8 = "^1.5.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
