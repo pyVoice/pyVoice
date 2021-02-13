@@ -20,8 +20,7 @@ def get_reply(cmd, system=False, module=False, stage=0):
 
     if system:
         if module:
-            reply = replies_file_data["system"][cmd[0]
-                                                ][cmd[1]][settings.LANGUAGE]["data"][stage]
+            reply = replies_file_data["system"][cmd[0]][cmd[1]][settings.LANGUAGE]["data"][stage]
         else:
             reply = replies_file_data["system"][cmd][settings.LANGUAGE]["data"][stage]
     else:
