@@ -1,14 +1,15 @@
 import requests
-import bs4
 from bs4 import BeautifulSoup
 
 from src import settings
 from src.core.modules import tts
 
-# search Google and get result
+"""
+Google Search
+"""
 
 
-def ex(input):
+def ex(cmd):
     keywords = input.replace(settings.KEYWORD + " ", "").lower().replace(" ", "+")
     url = "https://www.google.com/search?q={0}&hl={1}".format(keywords, settings.LANGUAGE_SHORT)
 
@@ -18,9 +19,8 @@ def ex(input):
     try:
         text_tag = soup.find("div", {"class": "BNeawe iBp4i AP7Wnd"})
         output = text_tag.getText()
-    except Exception:
-        text_tag = soup.find("div", {"class": "xpc"}).find(
-            "div", {"class": "BNeawe s3v9rd AP7Wnd"})
+    except:
+        text_tag = soup.find("div", {"class": "xpc"}).find("div", {"class": "BNeawe s3v9rd AP7Wnd"})
         output = text_tag.getText()
 
     tts.speak(output)
