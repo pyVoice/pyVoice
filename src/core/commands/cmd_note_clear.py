@@ -1,5 +1,4 @@
 import json
-from os import sep
 
 from src.core.modules import tts, replying
 
