@@ -1,5 +1,5 @@
 name: PEP Analysis
-on: [ push, pull_request ]
+on: [push, pull_request]
 
 defaults:
   run:
@@ -23,6 +23,6 @@ jobs:
         uses: wemake-services/wemake-python-styleguide@0.14.1
         continue-on-error: true
         with:
-          reporter: 'github-pr-review'
+          reporter: "github-pr-review"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
