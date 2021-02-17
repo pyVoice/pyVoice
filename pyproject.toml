@@ -15,6 +15,7 @@ SpeechRecognition = "^3.8.1"
 playsound = "^1.2.2"
 beautifulsoup4 = "^4.9.3"
 pypiwin32 = "^223"
+sentry-sdk = "^0.20.2"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"

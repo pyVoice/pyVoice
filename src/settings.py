@@ -3,6 +3,9 @@ Settings
 """
 
 import logging
+from platform import platform
+
+from src import __version__
 
 KEYWORD = "hey"
 
@@ -11,13 +14,16 @@ LANGUAGE_SHORT = LANGUAGE[:2]
 
 LOCATION = "lisbon"
 WEATHER_API_KEY = ""
+SENTRY_DSN = "https://08c7d197057a44e1b07ab43c1d0691ce@o520978.ingest.sentry.io/5632072"
 
 STT_ENGINE = "google"
 TTS_ENGINE = ""
 TTS_SUBTITLE = True
 TTS_AUTODETECT = True
 
-OPERATING_SYSTEM = ""
+OPERATING_SYSTEM = platform()
+VERSION = __version__
+ENV = "dev"
 
 # ACTIVATION_SOUND_PATH = "src/data/sound/activation.mp3"
 # PHRASES_FILE_PATH = "src/data/json/phrases.json"
@@ -31,16 +37,5 @@ MAX_NEWS_TICKS = 3
 
 SR_ENERGY_THRESHOLD = 200
 
-LOGGER_NAME = "otto"
+LOGGER_NAME = "pyvoice"
 LOGGER_LEVEL = logging.DEBUG
-
-# BANNER = """
-#                 _    __      _
-#     ____  __  _| |  / /___  (_)_______
-#    / __ \/ / / / | / / __ \/ / ___/ _ \
-#   / /_/ / /_/ /| |/ / /_/ / / /__/  __/
-#  / .___/\__, / |___/\____/_/\___/\___/
-# /_/    /____/
-# """
-
-BANNER = "pyVoice beta"

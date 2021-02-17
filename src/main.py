@@ -2,7 +2,7 @@ import sys
 import traceback
 
 from src import settings
-from src.core.modules import log, tts, stt, matching, replying
+from src.core.modules import log, tts, stt, matching, replying, sentry
 
 # TODO: make quit work
 
@@ -18,6 +18,7 @@ class Assistant:
         # Initialize engines
         stt.setup()
         tts.setup()
+        sentry.setup()
 
     def clean(self) -> None:
         log.debug("Cleaning...")
@@ -25,8 +26,8 @@ class Assistant:
     def greet(self) -> None:
         log.debug("Greeting...")
 
-        # print banner and basic usage
-        print(settings.BANNER)
+        # print banner and basic usage, TODO: replace
+        print("pyVoice - beta")
         print(replying.get_reply("greet", system=True).format(settings.KEYWORD))
         print(replying.get_reply("greet", system=True, stage=1).format(settings.KEYWORD))
         print(replying.get_reply("greet", system=True, stage=2).format(settings.KEYWORD))
