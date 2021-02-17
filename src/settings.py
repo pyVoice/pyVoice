@@ -43,4 +43,4 @@ LOGGER_LEVEL = logging.DEBUG
 # /_/    /____/
 # """
 
-BANNER = "pyVoic beta"
+BANNER = "pyVoice beta"
