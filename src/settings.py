@@ -3,6 +3,7 @@ Settings
 """
 
 import logging
+import sys
 from platform import platform
 
 from src import __version__
@@ -25,13 +26,15 @@ OPERATING_SYSTEM = platform()
 VERSION = __version__
 ENV = "dev"
 
-# ACTIVATION_SOUND_PATH = "src/data/sound/activation.mp3"
-# PHRASES_FILE_PATH = "src/data/json/phrases.json"
-# REPLIES_FILE_PATH = "src/data/json/replies.json"
-
-ACTIVATION_SOUND_PATH = "./data/sound/activation.mp3"
-PHRASES_FILE_PATH = "./data/json/phrases.json"
-REPLIES_FILE_PATH = "./data/json/replies.json"
+# check if running in bundle mode or dev/normal mode
+if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
+    ACTIVATION_SOUND_PATH = "./data/sound/activation.mp3"
+    PHRASES_FILE_PATH = "./data/json/phrases.json"
+    REPLIES_FILE_PATH = "./data/json/replies.json"
+else:
+    ACTIVATION_SOUND_PATH = "src/data/sound/activation.mp3"
+    PHRASES_FILE_PATH = "src/data/json/phrases.json"
+    REPLIES_FILE_PATH = "src/data/json/replies.json"
 
 MAX_NEWS_TICKS = 3
 
