@@ -1,0 +1,61 @@
+name: Weekly Git logs
+
+on:
+  schedule:
+    - cron: "30 23 * * 5"
+
+  workflow_dispatch:
+
+jobs:
+  export_main_repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main repository
+        uses: actions/checkout@v2
+        with:
+          repository: pyVoice/pyVoice
+          fetch_depth: 0
+
+      - name: Checkout site-pap repository
+        uses: actions/checkout@v2
+        with:
+          repository: pyVoice/site-pap
+          fetch_depth: 0
+
+      - name: Checkout device-api repository
+        uses: actions/checkout@v2
+        with:
+          repository: pyVoice/pyVoice
+          fetch_depth: 0
+
+      - name: Get logs for main repository
+        run: |
+          cd pVoice \
+          git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_main.csv
+
+      - name: Get logs for site-pap repository
+        run: |
+          cd site-pap \
+          git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_site-pap.csv
+
+      - name: Get logs for device-api repository
+        run: |
+          cd device-api \
+          git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_device-api.csv
+
+      - name: Add main repository log to artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: git_logs
+          path: |
+            log_main.csv
+            log_site-pap.csv
+            log_device-api.csv
+
+      - name: Notify
+        uses: ShaunLWM/action-pushbullet@master
+        env:
+          PB_TOKEN: ${{ secrets.PB_TOKEN }}
+          PB_TITLE: Git logs exported!
+          PB_TEXT: The pyVoice repo weekly logs have been exported.
