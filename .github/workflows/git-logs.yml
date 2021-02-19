@@ -35,17 +35,17 @@ jobs:
       - name: Get logs for main repository
         run: |
           pwd
-          cd pVoice
+          cd ./pVoice
           git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_main.csv
 
       - name: Get logs for site-pap repository
         run: |
-          cd site-pap
+          cd ./site-pap
           git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_site-pap.csv
 
       - name: Get logs for device-api repository
         run: |
-          cd device-api
+          cd ./device-api
           git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_device-api.csv
 
       - name: Add main repository log to artifacts
