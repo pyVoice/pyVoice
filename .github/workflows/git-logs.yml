@@ -2,6 +2,7 @@ name: Weekly Git logs
 
 on:
   schedule:
+    # every friday at 23:30
     - cron: "30 23 * * 5"
 
   workflow_dispatch:
