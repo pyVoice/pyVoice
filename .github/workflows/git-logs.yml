@@ -34,6 +34,7 @@ jobs:
 
       - name: Get logs for main repository
         run: |
+          pwd
           cd pVoice
           git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_main.csv
 
