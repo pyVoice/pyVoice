@@ -15,18 +15,21 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: pyVoice/pyVoice
+          path: ./pyVoice
           fetch-depth: 0
 
       - name: Checkout site-pap repository
         uses: actions/checkout@v2
         with:
           repository: pyVoice/site-pap
+          path: ./site-pap
           fetch-depth: 0
 
       - name: Checkout device-api repository
         uses: actions/checkout@v2
         with:
           repository: pyVoice/pyVoice
+          path: ./device-api
           fetch-depth: 0
 
       - name: Get logs for main repository
