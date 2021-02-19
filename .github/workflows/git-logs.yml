@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  export_main_repo:
+  export_git_logs:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,33 +15,33 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: pyVoice/pyVoice
-          fetch_depth: 0
+          fetch-depth: 0
 
       - name: Checkout site-pap repository
         uses: actions/checkout@v2
         with:
           repository: pyVoice/site-pap
-          fetch_depth: 0
+          fetch-depth: 0
 
       - name: Checkout device-api repository
         uses: actions/checkout@v2
         with:
           repository: pyVoice/pyVoice
-          fetch_depth: 0
+          fetch-depth: 0
 
       - name: Get logs for main repository
         run: |
-          cd pVoice \
+          cd pVoice
           git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_main.csv
 
       - name: Get logs for site-pap repository
         run: |
-          cd site-pap \
+          cd site-pap
           git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_site-pap.csv
 
       - name: Get logs for device-api repository
         run: |
-          cd device-api \
+          cd device-api
           git log --since="7 days ago" --pretty=format:"%h;%an;%ad;%s" > ../log_device-api.csv
 
       - name: Add main repository log to artifacts
