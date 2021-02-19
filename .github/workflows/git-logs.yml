@@ -28,7 +28,7 @@ jobs:
       - name: Checkout device-api repository
         uses: actions/checkout@v2
         with:
-          repository: pyVoice/pyVoice
+          repository: pyVoice/device-api
           path: ./device-api
           fetch-depth: 0
 
