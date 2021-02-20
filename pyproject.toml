@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pyvoice"
-version = "0.1.0"
-description = "Assistente pessoal, controlado por voz"
+version = "0.2.0"
+description = ""
 authors = ["Afonso Santos <afonso.faisca1@gmail.com>"]
 license = "MIT"
 
@@ -10,18 +10,18 @@ python = "^3.9"
 requests = "^2.25.1"
 wheel = "^0.36.2"
 pyaudio = {path = "wheels/PyAudio-0.2.11-cp39-cp39-win_amd64.whl"}
-gTTS = "^2.2.1"
+gTTS = "^2.2.2"
 SpeechRecognition = "^3.8.1"
 playsound = "^1.2.2"
 beautifulsoup4 = "^4.9.3"
 pypiwin32 = "^223"
-sentry-sdk = "^0.20.2"
+sentry-sdk = "^0.20.3"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"
-autopep8 = "^1.5.4"
+autopep8 = "^1.5.5"
 pre-commit = "^2.10.1"
-mypy = "^0.800"
+mypy = "^0.812"
 pyinstaller = "^4.2"
 auto-py-to-exe = "^2.8.0"
 
