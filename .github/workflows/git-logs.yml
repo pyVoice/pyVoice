@@ -10,6 +10,7 @@ on:
 jobs:
   export_git_logs:
     runs-on: ubuntu-latest
+    name: "Export weekly Git logs" 
 
     steps:
       - name: Checkout main repository
