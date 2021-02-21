@@ -1,5 +1,8 @@
 """
-Text to Speech engine
+**Text to Speech (TTS) engine**
+
+Converts text into audio.
+Works in Windows (using the SAPI engine) and other platforms, using `gTTS`.
 """
 
 import platform
@@ -13,7 +16,15 @@ from src.core.modules import log
 engine = None
 
 
-def setup():
+def setup() -> None:
+    """
+    Initialize the TTS engine
+
+    Steps:
+        1. Checks the platform (operating system)
+        2. Sets the engine to one supported (SAPI or gTTS)
+    """
+
     global engine
 
     # detect OS
@@ -36,19 +47,32 @@ def setup():
 
         log.info("(!) Using slow TTS engine on your OS")
 
-# play MP3
 
+def play_mp3(file: str) -> None:
+    """
+    Plays a MP3 file. Used when engine is set to gTTS.
 
-def play_mp3(file):
+    Args:
+        file (str): the file to play
+    """
+
     if file.endswith(".mp3"):
         playsound(file, True)
     else:
         log.error("The file provided is not a MP3 file.")
 
-# speak
 
+def speak(text: str) -> None:
+    """
+    Outputs a text phrase to audio.
 
-def speak(text):
+    Steps:
+        1. If Windows, play using the SAPI engine. Else, play using gTTS and the `play_mp3` function.
+
+    Args:
+        text (str): the text phrase to say
+    """
+
     if settings.TTS_SUBTITLE:
         log.info(text)
 

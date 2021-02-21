@@ -1,5 +1,7 @@
 """
-Logging module
+**Logging module**
+
+Logs messages to the configured logging output.
 """
 
 import logging
@@ -10,24 +12,40 @@ logger = logging.getLogger(settings.LOGGER_NAME)
 logger.setLevel(settings.LOGGER_LEVEL)
 
 
-# error
-def error(text):
+def error(text: str) -> None:
+    """
+    Log a error message
+
+    Args:
+        text (str): The message to log
+    """
+
     if logger.level <= logging.ERROR:
         print("\n- {}".format(text))
     logger.info(text)
 
-# debug
 
+def debug(text: str) -> None:
+    """
+    Log a debug message (helpful for development)
 
-def debug(text):
+    Args:
+        text (str): The message to log
+    """
+
     if logger.level <= logging.DEBUG:
         print("\n- {}".format(text))
     logger.debug(text)
 
-# info
 
+def info(text: str) -> None:
+    """
+    Log a informative message
 
-def info(text):
+    Args:
+        text (str): The message to log
+    """
+
     if logger.level <= logging.INFO:
         print("\n- {}".format(text))
     logger.info(text)

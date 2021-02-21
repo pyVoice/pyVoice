@@ -1,4 +1,8 @@
-"""Speech to text"""
+"""
+**Speech to Text (STT) engine**
+
+Converts the user speech (audio) into text.
+"""
 
 import threading
 import traceback
@@ -8,25 +12,47 @@ from src import settings
 from src.core.modules import log, tts, replying
 
 
-def setup():
+def setup() -> None:
+    """
+    Initializes the STT engine
+
+    Steps:
+        1. Creates a new `Recognizer` object
+        2. Configures the energy threshold
+    """
+
     global recognizer
+
     recognizer = sr.Recognizer()
     recognizer.dynamic_energy_threshold = False
     recognizer.energy_threshold = settings.SR_ENERGY_THRESHOLD
 
-# returns audio from microphone when finished
 
+def listen() -> sr.AudioData:
+    """
+    Listens for user input (voice) and returns it
 
-def listen():
+    Returns:
+        sr.AudioData: The raw input data
+    """
+
     with sr.Microphone() as raw_microphone_input:
         log.debug("Listening to ambient...")
         audio = recognizer.listen(raw_microphone_input)
         return audio
 
-# returns text output from audio input
 
+def recognize(audio: sr.AudioData) -> str:
+    """
+    Transcribes human voice data from a `AudioData` object (from `listen`)
 
-def recognize(audio: str):
+    Args:
+        audio (sr.AudioData): The raw audio data from the user
+
+    Returns:
+        str: A sentence/phrase with the user intent
+    """
+
     output = None
 
     log.debug("Recognizing audio...")
@@ -44,11 +70,17 @@ def recognize(audio: str):
         finally:
             return output
 
-# recognizes the keywork, stops listening of keyword is detected
-# callback of listen_for_keyword
 
+def recognize_keyword() -> None:
+    """
+    Listens for the keyword, to activate the assistant.
 
-def recognize_keyword():
+    Steps:
+        1. Listens for audio from the microphone
+        2. Recognizes the audio using `gTTS`
+        3. Checks if the keyword (as in `settings.KEYWORD`) is in the audio data (if True, break loop)
+    """
+
     global keyword_detected
     global new_process
 
@@ -75,7 +107,19 @@ def recognize_keyword():
 
 
 # listen for keyword, returns True if detected
-def listen_for_keyword():
+def listen_for_keyword() -> bool:
+    """
+    Loops until the keyword is recognized from the user input (from `recognize_keyword`).
+
+    Steps:
+        1. Enters the loop (keyword detection)
+        2. Creates a new thread (using `recognize_keyword` as target)
+        3. If the keywork is detected, break the loop and play the activation sound
+
+    Returns:
+        bool: Whether the keyword is recognizes or not. If not, continue the loop.
+    """
+
     global keyword_detected
     global new_process
 
@@ -99,7 +143,20 @@ def listen_for_keyword():
 
 
 # listen for binary answer (yes/no), returns True/False
-def listen_for_binary():
+def listen_for_binary() -> bool:
+    """
+    Checks if a binary/boolean value (Yes/No) is present in the transcribed audio.
+    Used in Yes/No questions (e.g. *"Do you want X?"*)
+
+    Steps:
+        1. Listens for audio from the microphone
+        2. Recognizes the audio using `gTTS`
+        3. Checks if a boolean value (Yes, No, True, False) is present in the audio data
+
+    Returns:
+        bool: Wheter a boolean value is present in the audio data
+    """
+
     yes_reply = replying.get_reply(["stt", "yn_y"], system=True, module=True)
     no_reply = replying.get_reply(["stt", "yn_n"], system=True, module=True)
 
