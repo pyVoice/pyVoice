@@ -2,15 +2,15 @@ name: Weekly Git logs
 
 on:
   schedule:
-    # every friday at 23:30
-    - cron: "30 23 * * 5"
+    # every friday at 20:30
+    - cron: "00 20 * * 5"
 
   workflow_dispatch:
 
 jobs:
   export_git_logs:
     runs-on: ubuntu-latest
-    name: "Export weekly Git logs" 
+    name: "Export weekly Git logs"
 
     steps:
       - name: Checkout main repository
