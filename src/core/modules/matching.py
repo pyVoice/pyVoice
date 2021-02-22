@@ -70,7 +70,7 @@ def test_match(input):
         # check if keyword in input
         if keyword in input.lower():
             tts.speak(replying.get_reply(["matching", "ask"], system=True, module=True).format(keyword))
-            yn_input = stt.listen_for_yn()
+            yn_input = stt.listen_for_binary()
             # if 'yes'
             if yn_input:
                 # read the phrases file
