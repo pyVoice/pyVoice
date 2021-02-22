@@ -55,7 +55,8 @@
     "en-US": {
       "keyword": "weather",
       "data": [
-        "what's the weather like"
+        "what's the weather like",
+        "what's the weather"
       ]
     }
   },

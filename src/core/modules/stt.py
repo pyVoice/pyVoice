@@ -6,10 +6,14 @@ Converts the user speech (audio) into text.
 
 import threading
 import traceback
+
 import speech_recognition as sr
+from memory_profiler import profile
 
 from src import settings
 from src.core.modules import log, tts, replying
+
+f = open("memory.log", "w+")
 
 
 def setup() -> None:
@@ -42,7 +46,8 @@ def listen() -> sr.AudioData:
         return audio
 
 
-def recognize(audio: sr.AudioData) -> str:
+@profile(stream=f)
+def recognize(audio: sr.AudioData):
     """
     Transcribes human voice data from a `AudioData` object (from `listen`)
 
@@ -71,6 +76,7 @@ def recognize(audio: sr.AudioData) -> str:
             return output
 
 
+@profile(stream=f)
 def recognize_keyword() -> None:
     """
     Listens for the keyword, to activate the assistant.
@@ -107,6 +113,7 @@ def recognize_keyword() -> None:
 
 
 # listen for keyword, returns True if detected
+@profile(stream=f)
 def listen_for_keyword() -> bool:
     """
     Loops until the keyword is recognized from the user input (from `recognize_keyword`).
