@@ -106,7 +106,6 @@ def recognize_keyword() -> None:
         log.error("A unknown error ocurred...")
 
 
-# listen for keyword, returns True if detected
 def listen_for_keyword() -> bool:
     """
     Loops until the keyword is recognized from the user input (from `recognize_keyword`).
@@ -142,7 +141,6 @@ def listen_for_keyword() -> bool:
     return True
 
 
-# listen for binary answer (yes/no), returns True/False
 def listen_for_binary() -> bool:
     """
     Checks if a binary/boolean value (Yes/No) is present in the transcribed audio.
