@@ -16,6 +16,8 @@ playsound = "^1.2.2"
 beautifulsoup4 = "^4.9.3"
 pypiwin32 = "^223"
 sentry-sdk = "^0.20.3"
+pyfiglet = "^0.8.post1"
+printy = "^2.1.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"
