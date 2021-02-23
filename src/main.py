@@ -1,14 +1,18 @@
 import sys
 import traceback
 
+from pyfiglet import Figlet
+from printy import printy
+
 from src import settings
-from src.core.modules import log, tts, stt, matching, replying, sentry
+from src.core.modules import log, tts, stt, matching, replying, sentry, startup
 
 # TODO: make quit work
 
 
 class Assistant:
     def __init__(self):
+        self.fig = Figlet(font="larry3d")
         self.setup()
         self.stop = False
 
@@ -16,6 +20,7 @@ class Assistant:
         log.debug("Setup...")
 
         # Initialize engines
+        startup.run_startup_tasks()
         stt.setup()
         tts.setup()
         sentry.setup()
@@ -26,8 +31,7 @@ class Assistant:
     def greet(self) -> None:
         log.debug("Greeting...")
 
-        # print banner and basic usage, TODO: replace
-        print("pyVoice - beta")
+        printy(self.fig.renderText("pyVoice"), "nB")
         print(replying.get_reply("greet", system=True).format(settings.KEYWORD))
         print(replying.get_reply("greet", system=True, stage=1).format(settings.KEYWORD))
         print(replying.get_reply("greet", system=True, stage=2).format(settings.KEYWORD))
