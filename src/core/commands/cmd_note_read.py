@@ -1,11 +1,12 @@
 import json
 import time
 
+from src import settings
 from src.core.modules import tts, replying
 
 
 def ex(cmd):
-    with open("data/files/json/notes.json", "r+", encoding="utf-8") as notes_file:
+    with open(settings.NOTES_FILE_PATH, "r+", encoding="utf-8") as notes_file:
         notes_file_data = json.load(notes_file)
 
     tts.speak(replying.get_reply("note_read"))
