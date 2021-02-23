@@ -4,41 +4,49 @@ Settings
 
 import logging
 import sys
-from platform import platform
 
 from src import __version__
+from src.core.modules.startup import load_settings
 
-KEYWORD = "hey"
+# read from settings JSON file
+settings_file_data = load_settings()
 
-LANGUAGE = "en-US"
-LANGUAGE_SHORT = LANGUAGE[:2]
+KEYWORD = settings_file_data["keyword"]
 
-LOCATION = "lisbon"
-WEATHER_API_KEY = ""
-SENTRY_DSN = "https://08c7d197057a44e1b07ab43c1d0691ce@o520978.ingest.sentry.io/5632072"
+LANGUAGE = settings_file_data["language"]
+LANGUAGE_SHORT = settings_file_data["language"][:2]
 
-STT_ENGINE = "google"
-TTS_ENGINE = ""
-TTS_SUBTITLE = True
-TTS_AUTODETECT = True
+LOCATION = settings_file_data["location"]
+WEATHER_API_KEY = settings_file_data["weather_api_key"]
+SENTRY_DSN = settings_file_data["sentry_dsn"]
 
-OPERATING_SYSTEM = platform()
+STT_ENGINE = settings_file_data["stt_engine"]
+TTS_ENGINE = settings_file_data["tts_engine"]
+TTS_SUBTITLE = settings_file_data["tts_subtitle"]
+TTS_AUTODETECT = settings_file_data["tts_autodetect"]
+
 VERSION = __version__
-ENV = "dev"
 
-# check if running in bundle mode or dev/normal mode
 if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
-    ACTIVATION_SOUND_PATH = "./data/sound/activation.mp3"
-    PHRASES_FILE_PATH = "./data/json/phrases.json"
-    REPLIES_FILE_PATH = "./data/json/replies.json"
+    # Bundled/installed mode
+    ACTIVATION_SOUND_PATH = settings_file_data["paths"]["bundled"]["activation_sound"]
+    PHRASES_FILE_PATH = settings_file_data["paths"]["bundled"]["phrases_file"]
+    REPLIES_FILE_PATH = settings_file_data["paths"]["bundled"]["replies_file"]
+    NOTES_FILE_PATH = settings_file_data["paths"]["bundled"]["notes_file"]
 else:
-    ACTIVATION_SOUND_PATH = "src/data/sound/activation.mp3"
-    PHRASES_FILE_PATH = "src/data/json/phrases.json"
-    REPLIES_FILE_PATH = "src/data/json/replies.json"
+    # Dev/normal mode
+    ACTIVATION_SOUND_PATH = settings_file_data["paths"]["dev"]["activation_sound"]
+    PHRASES_FILE_PATH = settings_file_data["paths"]["dev"]["phrases_file"]
+    REPLIES_FILE_PATH = settings_file_data["paths"]["dev"]["replies_file"]
+    NOTES_FILE_PATH = settings_file_data["paths"]["dev"]["notes_file"]
 
-MAX_NEWS_TICKS = 3
+MAX_NEWS_TICKS = settings_file_data["max_news_ticks"]
 
-SR_ENERGY_THRESHOLD = 200
+SR_ENERGY_THRESHOLD = settings_file_data["sr_energy_threshold"]
 
-LOGGER_NAME = "pyvoice"
+LOGGER_NAME = settings_file_data["logger_name"]
 LOGGER_LEVEL = logging.DEBUG
+
+OPERATING_SYSTEM = settings_file_data["operating_system"]
+
+ENV = "prod" if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS") is True else "dev"
