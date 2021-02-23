@@ -1,4 +1,3 @@
-from platform import platform
 import sentry_sdk
 
 from src import settings, __version__
@@ -8,7 +7,7 @@ from src.core.modules import log
 def setup() -> None:
     # get local environment
     version = __version__.__version__
-    operating_system = platform()
+    operating_system = settings.OPERATING_SYSTEM
     environment = settings.ENV
 
     # init the Sentry SDK
@@ -28,4 +27,4 @@ def setup() -> None:
         }
     )
 
-    log.info("Error reporting up!")
+    log.info("Error reporting setup!")
