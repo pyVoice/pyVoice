@@ -2,241 +2,151 @@
   "time": {
     "en-US": {
       "keyword": "time",
-      "data": [
-        "what's the time"
-      ]
+      "data": ["what's the time"]
     },
     "pt-PT": {
       "keyword": "hora",
-      "data": [
-        "qual a hora",
-        "quais as horas",
-        "que horas são"
-      ]
+      "data": ["qual a hora", "quais as horas", "que horas são"]
     }
   },
   "date": {
     "en-US": {
       "keyword": "date",
-      "data": [
-        "what's the day today",
-        "what's the date today",
-        "what's the date"
-      ]
+      "data": ["what's the day today", "what's the date today", "what's the date"]
     },
     "pt-PT": {
       "keyword": "data",
-      "data": [
-        "qual a data",
-        "qual é a data"
-      ]
+      "data": ["qual a data", "qual é a data"]
     }
   },
   "weather": {
     "en-US": {
       "keyword": "weather",
-      "data": [
-        "what's the weather like",
-        "what's the weather",
-        "what is the weather"
-      ]
+      "data": ["what's the weather like", "what's the weather", "what is the weather"]
     },
     "pt-PT": {
       "keyword": "tempo",
-      "data": [
-        "qual o tempo",
-        "qual é o tempo"
-      ]
+      "data": ["qual o tempo", "qual é o tempo"]
     }
   },
   "weatherforecast": {
     "en-US": {
       "keyword": "weather report",
-      "data": [
-        "what's the weather report"
-      ]
+      "data": ["what's the weather report"]
     },
     "pt-PT": {
       "keyword": "meteorologia",
-      "data": [
-        "qual a meteorologia"
-      ]
+      "data": ["qual a meteorologia"]
     }
   },
   "news": {
     "en-US": {
       "keyword": "news",
-      "data": [
-        "what are the news",
-        "what are the latest news",
-        "tell me the news"
-      ]
+      "data": ["what are the news", "what are the latest news", "tell me the news"]
     },
     "pt-PT": {
       "keyword": "noticías",
-      "data": [
-        "quais as noticías para hoje",
-        "quais são as últimas noticías"
-      ]
+      "data": ["quais as notícias", "quais as notícias para hoje", "quais são as últimas notícias"]
     }
   },
   "echo": {
     "en-US": {
       "keyword": "repeat",
-      "data": [
-        "repeat",
-        "say"
-      ]
+      "data": ["repeat", "say"]
     },
     "pt-PT": {
       "keyword": "repetir",
-      "data": [
-        "repete",
-        "repetir"
-      ]
+      "data": ["repete", "repetir"]
     }
   },
   "louder": {
     "en-US": {
       "keyword": "louder",
-      "data": [
-        "volume up",
-        "more sound"
-      ]
+      "data": ["volume up", "more sound"]
     },
     "pt-PT": {
       "keyword": "mais alto",
-      "data": [
-        "aumentar o volume",
-        "mais volume",
-        "volume mais alto"
-      ]
+      "data": ["aumentar o volume", "mais volume", "volume mais alto"]
     }
   },
   "quieter": {
     "en-US": {
       "keyword": "quieter",
-      "data": [
-        "volume down",
-        "less sound"
-      ]
+      "data": ["volume down", "less sound"]
     },
     "pt-PT": {
       "keyword": "mais baixo",
-      "data": [
-        "diminuir o volume",
-        "mais baixo",
-        "volume mais baixo"
-      ]
+      "data": ["diminuir o volume", "mais baixo", "volume mais baixo"]
     }
   },
   "note": {
     "en-US": {
       "keyword": "note",
-      "data": [
-        "what are my notes",
-        "read my notes",
-        "read notes"
-      ]
+      "data": ["what are my notes", "read my notes", "read notes"]
     },
     "pt-PT": {
       "keyword": "nota",
-      "data": [
-        "quais as minhas notas",
-        "lê as minhas notas",
-        "ler as notas"
-      ]
+      "data": ["quais as minhas notas", "lê as minhas notas", "ler as notas"]
     }
   },
   "note_add": {
     "en-US": {
       "keyword": "*",
-      "data": [
-        "new note",
-        "add note",
-        "remember"
-      ]
+      "data": ["new note", "add note", "remember"]
     },
     "pt-PT": {
       "keyword": "*",
-      "data": [
-        "nova nota",
-        "criar uma nota"
-      ]
+      "data": ["nova nota", "criar uma nota"]
     }
   },
   "note_clear": {
     "en-US": {
       "keyword": "*",
-      "data": [
-        "clear notes"
-      ]
+      "data": ["clear notes"]
     },
     "pt-PT": {
       "keyword": "*",
-      "data": [
-        "limpar as notas",
-        "limpar as minhas notas"
-      ]
+      "data": ["limpar as notas", "limpar as minhas notas"]
     }
   },
   "clock_set": {
     "en-US": {
       "keyword": "*",
-      "data": [
-        "*"
-      ]
+      "data": ["*"]
     },
     "pt-PT": {
       "keyword": "*",
-      "data": [
-        "*"
-      ]
+      "data": ["*"]
     }
   },
   "clock_reset": {
     "en-US": {
       "keyword": "*",
-      "data": [
-        "*"
-      ]
+      "data": ["*"]
     },
     "pt-PT": {
       "keyword": "*",
-      "data": [
-        "*"
-      ]
+      "data": ["*"]
     }
   },
   "cpu": {
     "en-US": {
       "keyword": "cpu temperature",
-      "data": [
-        "cpu temperature"
-      ]
+      "data": ["cpu temperature"]
     },
     "pt-PT": {
       "keyword": "temperatura cpu",
-      "data": [
-        "temperatura cpu"
-      ]
+      "data": ["temperatura cpu"]
     }
   },
   "me_info": {
     "en-US": {
       "keyword": "help",
-      "data": [
-        "how can you help me",
-        "who are you"
-      ]
+      "data": ["how can you help me", "who are you"]
     },
     "pt-PT": {
       "keyword": "info",
-      "data": [
-        "como me pode ajudar",
-        "quem és tu",
-        "conta-me sobre ti"
-      ]
+      "data": ["como me pode ajudar", "quem és tu", "conta-me sobre ti"]
     }
   }
 }
