@@ -32,10 +32,6 @@ commands = {
 }
 
 
-def setup():
-    pass
-
-
 def check_match(input):
     cmd = {"name": None, "text": None, "input": input}
     # get phrases file data as json
