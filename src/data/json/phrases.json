@@ -5,6 +5,14 @@
       "data": [
         "what's the time"
       ]
+    },
+    "pt-PT": {
+      "keyword": "hora",
+      "data": [
+        "qual a hora",
+        "quais as horas",
+        "que horas são"
+      ]
     }
   },
   "date": {
@@ -14,6 +22,13 @@
         "what's the day today",
         "what's the date today",
         "what's the date"
+      ]
+    },
+    "pt-PT": {
+      "keyword": "data",
+      "data": [
+        "qual a data",
+        "qual é a data"
       ]
     }
   },
@@ -25,6 +40,13 @@
         "what's the weather",
         "what is the weather"
       ]
+    },
+    "pt-PT": {
+      "keyword": "tempo",
+      "data": [
+        "qual o tempo",
+        "qual é o tempo"
+      ]
     }
   },
   "weatherforecast": {
@@ -32,6 +54,12 @@
       "keyword": "weather report",
       "data": [
         "what's the weather report"
+      ]
+    },
+    "pt-PT": {
+      "keyword": "meteorologia",
+      "data": [
+        "qual a meteorologia"
       ]
     }
   },
@@ -43,6 +71,13 @@
         "what are the latest news",
         "tell me the news"
       ]
+    },
+    "pt-PT": {
+      "keyword": "noticías",
+      "data": [
+        "quais as noticías para hoje",
+        "quais são as últimas noticías"
+      ]
     }
   },
   "echo": {
@@ -51,6 +86,13 @@
       "data": [
         "repeat",
         "say"
+      ]
+    },
+    "pt-PT": {
+      "keyword": "repetir",
+      "data": [
+        "repete",
+        "repetir"
       ]
     }
   },
@@ -61,6 +103,14 @@
         "volume up",
         "more sound"
       ]
+    },
+    "pt-PT": {
+      "keyword": "mais alto",
+      "data": [
+        "aumentar o volume",
+        "mais volume",
+        "volume mais alto"
+      ]
     }
   },
   "quieter": {
@@ -69,6 +119,14 @@
       "data": [
         "volume down",
         "less sound"
+      ]
+    },
+    "pt-PT": {
+      "keyword": "mais baixo",
+      "data": [
+        "diminuir o volume",
+        "mais baixo",
+        "volume mais baixo"
       ]
     }
   },
@@ -80,6 +138,14 @@
         "read my notes",
         "read notes"
       ]
+    },
+    "pt-PT": {
+      "keyword": "nota",
+      "data": [
+        "quais as minhas notas",
+        "lê as minhas notas",
+        "ler as notas"
+      ]
     }
   },
   "note_add": {
@@ -90,6 +156,13 @@
         "add note",
         "remember"
       ]
+    },
+    "pt-PT": {
+      "keyword": "*",
+      "data": [
+        "nova nota",
+        "criar uma nota"
+      ]
     }
   },
   "note_clear": {
@@ -98,10 +171,23 @@
       "data": [
         "clear notes"
       ]
+    },
+    "pt-PT": {
+      "keyword": "*",
+      "data": [
+        "limpar as notas",
+        "limpar as minhas notas"
+      ]
     }
   },
   "clock_set": {
     "en-US": {
+      "keyword": "*",
+      "data": [
+        "*"
+      ]
+    },
+    "pt-PT": {
       "keyword": "*",
       "data": [
         "*"
@@ -114,6 +200,12 @@
       "data": [
         "*"
       ]
+    },
+    "pt-PT": {
+      "keyword": "*",
+      "data": [
+        "*"
+      ]
     }
   },
   "cpu": {
@@ -121,6 +213,12 @@
       "keyword": "cpu temperature",
       "data": [
         "cpu temperature"
+      ]
+    },
+    "pt-PT": {
+      "keyword": "temperatura cpu",
+      "data": [
+        "temperatura cpu"
       ]
     }
   },
@@ -130,6 +228,14 @@
       "data": [
         "how can you help me",
         "who are you"
+      ]
+    },
+    "pt-PT": {
+      "keyword": "info",
+      "data": [
+        "como me pode ajudar",
+        "quem és tu",
+        "conta-me sobre ti"
       ]
     }
   }
