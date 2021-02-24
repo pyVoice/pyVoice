@@ -15,7 +15,7 @@ def write_os_json() -> None:
     orig_file["operating_system"] = os
 
     with open(file_path, "w") as new_file:
-        json.dump(orig_file, new_file)
+        json.dump(orig_file, new_file, indent=2)
 
 
 def load_settings() -> dict:

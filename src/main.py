@@ -1,4 +1,3 @@
-import sys
 import traceback
 
 from pyfiglet import Figlet
@@ -45,7 +44,7 @@ class Assistant:
         self.clean()
 
         log.info("Bye!")
-        sys.exit()
+        exit()
 
     def run(self):
         self.greet()

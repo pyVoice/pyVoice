@@ -32,6 +32,7 @@ def setup() -> None:
         try:
             import win32com.client as win32com
             engine = win32com.Dispatch("SAPI.SpVoice")
+            log.debug("Using SAPI")
         except ModuleNotFoundError:
             log.error("Couldn't find module named 'win32com.client'")
             log.error(
@@ -40,6 +41,7 @@ def setup() -> None:
         try:
             from gtts import gTTS
             engine = gTTS
+            log.debug("Using gTTS")
         except ModuleNotFoundError:
             log.error("Couldn't find module named 'gTTS'")
             log.error(
