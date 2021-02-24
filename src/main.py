@@ -20,9 +20,9 @@ class Assistant:
 
         # Initialize engines
         startup.run_startup_tasks()
+        sentry.setup()
         stt.setup()
         tts.setup()
-        sentry.setup()
 
     def clean(self) -> None:
         log.debug("Cleaning...")
