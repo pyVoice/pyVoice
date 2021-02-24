@@ -1,12 +1,4 @@
 {
-  "python.formatting.autopep8Args": [
-    "--max-line-length=120"
-  ],
-  "python.pythonPath": ".venv\\Scripts\\python.exe",
-  "python.testing.pytestArgs": [
-    "src"
-  ],
-  "python.testing.unittestEnabled": false,
-  "python.testing.nosetestsEnabled": false,
-  "python.testing.pytestEnabled": true
+  "python.formatting.autopep8Args": ["--max-line-length=120"],
+  "python.pythonPath": ".venv\\Scripts\\python.exe"
 }
