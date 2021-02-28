@@ -92,7 +92,7 @@
   "note_add": {
     "en-US": {
       "keyword": "*",
-      "data": ["new note", "add note", "remember"]
+      "data": ["new note", "add note", "add a note", "remember"]
     },
     "pt-PT": {
       "keyword": "*",

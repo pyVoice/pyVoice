@@ -1,5 +1,20 @@
+from typing import Any
 from src.main import Assistant
 from src.core.modules import matching
+
+
+def print_results(input: Any, result: Any, expected: Any) -> None:
+    """
+    Prints the result from a specific test
+
+    Args:
+        result (Any): The test result
+        expected (Any): The expected test result
+    """
+
+    print("\n[i] Input: {0}".format(input))
+    print("[i] Result: {0}".format(result))
+    print("[i] Expected: {0}".format(expected))
 
 
 class TestMatching:
@@ -12,18 +27,129 @@ class TestMatching:
         self.instance.setup()
 
     def test_cmd_date(self) -> None:
-        mock_input: str = "what's the date"
+        mock_input = "what's the date"
         expected_match = {
             "name": "date",
-            "text": "what's the date",
+            "text": mock_input,
             "input": mock_input
         }
 
         matched_cmd = matching.get_match(mock_input)
 
         # convert to separate method
-        print("\n[i] Result: {0}".format(matched_cmd))
-        print("[i] Expected: {0}".format(expected_match))
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+        # assert matching.execute_match()
+
+    def test_cmd_time(self) -> None:
+        mock_input = "what's the time"
+        expected_match = {
+            "name": "time",
+            "text": mock_input,
+            "input": mock_input
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+        # assert matching.execute_match()
+
+    def test_cmd_about_me(self) -> None:
+        mock_input = "who are you"
+        expected_match = {
+            "name": "me_info",
+            "text": mock_input,
+            "input": mock_input
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+        # assert matching.execute_match()
+
+    def test_cmd_echo(self) -> None:
+        mock_input = "repeat testing"
+        expected_match = {
+            "name": "echo",
+            "text": "repeat",
+            "input": mock_input
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+        # assert matching.execute_match()
+
+    def test_cmd_google_search(self) -> None:
+        mock_input = "how old is Elon Musk"
+        expected_match = {
+            "name": "google_search",
+            "text": mock_input,
+            "input": mock_input
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+        # assert matching.execute_match()
+
+    def test_cmd_google_news(self) -> None:
+        mock_input = "tell me the news"
+        expected_match = {
+            "name": "news",
+            "text": mock_input,
+            "input": mock_input
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+        # assert matching.execute_match()
+
+    def test_cmd_note_add(self) -> None:
+        mock_input = "new note i'm testing"
+        expected_match = {
+            "name": "note_add",
+            "text": "new note",
+            "input": mock_input
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+        # assert matching.execute_match()
+
+    def test_cmd_note_read(self) -> None:
+        mock_input = "read my notes"
+        expected_match = {
+            "name": "note",
+            "text": mock_input,
+            "input": mock_input
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
         # assert matching.execute_match()
