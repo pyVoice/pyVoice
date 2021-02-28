@@ -9,6 +9,7 @@ Assistente pessoal, controlado por voz.
 - Add note to register a API key at OpenWeatherMap
 - Do not use phrases with special chars (`'~^, etc) for keyword
 - SAPI engine does not work well for some PT-PT strings (maybe use gTTS for PT-PT?)
+- Make testing workflow export HTML output to artifacts
 
 ## Staus
 

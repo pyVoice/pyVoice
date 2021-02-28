@@ -7,14 +7,22 @@ Logs messages to the configured logging output.
 import logging
 
 from src import settings
+from src.core.modules.startup import create_log_dir
+
+create_log_dir()
 
 logger = logging.getLogger(settings.LOGGER_NAME)
+
+file_logger = logging.FileHandler(settings.FILE_LOGGER_PATH)
+file_logger.setFormatter(logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s"))
+
+logger.addHandler(file_logger)
 logger.setLevel(settings.LOGGER_LEVEL)
 
 
 def error(text: str) -> None:
     """
-    Log a error message
+    Logs a error message
 
     Args:
         text (str): The message to log
@@ -27,7 +35,7 @@ def error(text: str) -> None:
 
 def debug(text: str) -> None:
     """
-    Log a debug message (helpful for development)
+    Logs a debug message (helpful for development)
 
     Args:
         text (str): The message to log
@@ -40,7 +48,7 @@ def debug(text: str) -> None:
 
 def info(text: str) -> None:
     """
-    Log a informative message
+    Logs a informative message
 
     Args:
         text (str): The message to log

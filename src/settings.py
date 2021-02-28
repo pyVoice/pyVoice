@@ -46,6 +46,7 @@ SR_ENERGY_THRESHOLD = settings_file_data["sr_energy_threshold"]
 
 LOGGER_NAME = settings_file_data["logger_name"]
 LOGGER_LEVEL = logging.DEBUG
+FILE_LOGGER_PATH = settings_file_data["file_logger_path"]
 
 OPERATING_SYSTEM = settings_file_data["operating_system"]
 

@@ -1,7 +1,7 @@
 {
   "keyword": "hey",
   "language": "en-US",
-  "location": "rio maior",
+  "location": "Rio Maior",
   "weather_api_key": "29691ae819dcc5112f5e6e83174f9d12",
   "stt_engine": "google",
   "tts_engine": "",
@@ -25,5 +25,6 @@
     }
   },
   "operating_system": "Windows-10-10.0.19041-SP0",
-  "logger_name": "pyvoice"
+  "logger_name": "pyvoice",
+  "file_logger_path": "logs/pyvoice.log"
 }

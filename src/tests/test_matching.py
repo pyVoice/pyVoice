@@ -13,20 +13,17 @@ class TestMatching:
 
     def test_cmd_date(self) -> None:
         mock_input: str = "what's the date"
-        output_dict = {
+        expected_match = {
             "name": "date",
             "text": "what's the date",
             "input": mock_input
         }
 
-        assert matching.check_match(mock_input) == output_dict
+        matched_cmd = matching.get_match(mock_input)
 
-    def test_cmd_about_me(self):
-        mock_input: str = "who are you"
-        output_dict = {
-            "name": "me_info",
-            "text": "who are you",
-            "input": mock_input
-        }
+        # convert to separate method
+        print("\n[i] Result: {0}".format(matched_cmd))
+        print("[i] Expected: {0}".format(expected_match))
 
-        assert matching.check_match(mock_input) == output_dict
+        assert matched_cmd == expected_match
+        # assert matching.execute_match()
