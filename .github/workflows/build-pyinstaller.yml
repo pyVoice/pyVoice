@@ -96,7 +96,9 @@ jobs:
           poetry install
 
       - name: Run pyInstaller
-        run: poetry run pyinstaller pyinstaller/linux.spec
+        run: |
+          cd pyVoice
+          poetry run pyinstaller pyinstaller/linux.spec
 
       # - name: Build the executable with pyInstaller
       #   uses: JackMcKew/pyinstaller-action-linux@main
@@ -106,7 +108,8 @@ jobs:
 
       - name: ZIP the contents
         run: |
-          zip -r pyVoice-linux.zip pyVoice/dist/pyVoice_linux
+          cd pyVoice
+          zip -r pyVoice-linux.zip dist/pyVoice_linux
 
       - name: Upload built executable to artifacts
         uses: actions/upload-artifact@v2
