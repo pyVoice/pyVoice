@@ -44,7 +44,7 @@ jobs:
           poetry run pytest --html=test-report.html --self-contained-html
 
       - name: Upload test report to artifacts
-        if: steps.pytest.outcome != 'success' || steps.pytest.outcome == 'success'
+        if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
           name: test-report
