@@ -16,10 +16,10 @@ beautifulsoup4 = "^4.9.3"
 sentry-sdk = "^0.20.3"
 pyfiglet = "^0.8.post1"
 printy = "^2.1.1"
-pypiwin32 = {version = "^223", platform = "win32"}
+pypiwin32 = { markers = "sys_platform == 'win32'", version = "^223" }
 pyaudio = [
-    {path = "wheels/PyAudio-0.2.11-cp39-cp39-win_amd64.whl", platform = "win32"},
-    {version = "^0.2.11", platform = "linux"}
+    { platform = "linux", version = "^0.2.11" },
+    { markers = "sys_platform == 'win32'", path = "wheels/PyAudio-0.2.11-cp39-cp39-win_amd64.whl" },
 ]
 
 [tool.poetry.dev-dependencies]
