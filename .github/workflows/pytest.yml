@@ -22,6 +22,7 @@ jobs:
 
       - name: Setup the server, install dependencies
         run: |
+          cd pyVoice
           sudo chmod +x scripts/setup_linux.sh
           ./scripts/setup_linux.sh
 
