@@ -57,7 +57,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: test-report
-          path: test-report.html
+          path: pyVoice/test-report.html
 
       - name: Notify
         uses: ShaunLWM/action-pushbullet@master
