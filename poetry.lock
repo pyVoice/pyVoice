@@ -259,7 +259,7 @@ tests = ["pytest (==4.6.11)", "pytest-cov", "flake8", "testfixtures", "mock", "s
 
 [[package]]
 name = "identify"
-version = "1.5.13"
+version = "1.6.1"
 description = "File identification library for Python"
 category = "dev"
 optional = false
@@ -312,7 +312,7 @@ lingua = ["lingua"]
 
 [[package]]
 name = "markdown"
-version = "3.3.3"
+version = "3.3.4"
 description = "Python implementation of Markdown."
 category = "dev"
 optional = false
@@ -440,7 +440,7 @@ virtualenv = ">=20.0.8"
 
 [[package]]
 name = "printy"
-version = "2.1.1"
+version = "2.2.0"
 description = "Colorize the print statement by global or inline flags"
 category = "main"
 optional = false
@@ -773,7 +773,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "fd434862951fd2c6cdfaf656fd8fc76b84c77a99f4ed4443ee4d144ee378f120"
+content-hash = "a4f103d8b9dd8043dd31d8357df3041627b0746443a4076250de4ca970c4767f"
 
 [metadata.files]
 altgraph = [
@@ -973,8 +973,8 @@ gtts = [
     {file = "gTTS-2.2.2.tar.gz", hash = "sha256:b53714d8377afb66df9f112158a6a832de26bc72cee3b8af321575d85f820a0f"},
 ]
 identify = [
-    {file = "identify-1.5.13-py2.py3-none-any.whl", hash = "sha256:9dfb63a2e871b807e3ba62f029813552a24b5289504f5b071dea9b041aee9fe4"},
-    {file = "identify-1.5.13.tar.gz", hash = "sha256:70b638cf4743f33042bebb3b51e25261a0a10e80f978739f17e7fd4837664a66"},
+    {file = "identify-1.6.1-py2.py3-none-any.whl", hash = "sha256:ec4698722b9a8a6f2aa5f9ff9cc687956494f0ba734941659ad7f018cf457e44"},
+    {file = "identify-1.6.1.tar.gz", hash = "sha256:7b435803dc79a0f0ce887887a62ad360f3a9e8162ac0db9ee649d5d24085bf30"},
 ]
 idna = [
     {file = "idna-2.10-py2.py3-none-any.whl", hash = "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"},
@@ -992,8 +992,8 @@ mako = [
     {file = "Mako-1.1.4.tar.gz", hash = "sha256:17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"},
 ]
 markdown = [
-    {file = "Markdown-3.3.3-py3-none-any.whl", hash = "sha256:c109c15b7dc20a9ac454c9e6025927d44460b85bd039da028d85e2b6d0bcc328"},
-    {file = "Markdown-3.3.3.tar.gz", hash = "sha256:5d9f2b5ca24bc4c7a390d22323ca4bad200368612b5aaa7796babf971d2b2f18"},
+    {file = "Markdown-3.3.4-py3-none-any.whl", hash = "sha256:96c3ba1261de2f7547b46a00ea8463832c921d3f9d6aba3f255a6f71386db20c"},
+    {file = "Markdown-3.3.4.tar.gz", hash = "sha256:31b5b491868dcc87d6c24b7e3d19a0d730d59d3e46f4eea6430a321bed387a49"},
 ]
 markupsafe = [
     {file = "MarkupSafe-1.1.1-cp27-cp27m-macosx_10_6_intel.whl", hash = "sha256:09027a7803a62ca78792ad89403b1b7a73a01c8cb65909cd876f7fcebd79b161"},
@@ -1107,8 +1107,8 @@ pre-commit = [
     {file = "pre_commit-2.10.1.tar.gz", hash = "sha256:399baf78f13f4de82a29b649afd74bef2c4e28eb4f021661fc7f29246e8c7a3a"},
 ]
 printy = [
-    {file = "printy-2.1.1-py3-none-any.whl", hash = "sha256:934a58e67e969e4ff893ee7fadc3e8cb36469fd9989759ecd8c2f6ce3c9e5e73"},
-    {file = "printy-2.1.1.tar.gz", hash = "sha256:eeb3652002a2cb2ffeb4948b9bea2f141c4d867f621984eb54bb6de0e3dce164"},
+    {file = "printy-2.2.0-py3-none-any.whl", hash = "sha256:8c31c8fe414a474b02eb47ced9db6837ea8c15fa3d502fa89887cdc6b9de7901"},
+    {file = "printy-2.2.0.tar.gz", hash = "sha256:bfb21f9e6ea6f3185de929c488026b2fbfc29a863f91b7d2e674f4e49ca6ee1c"},
 ]
 py = [
     {file = "py-1.10.0-py2.py3-none-any.whl", hash = "sha256:3b80836aa6d1feeaa108e046da6423ab8f6ceda6468545ae8d02d9d58d18818a"},
