@@ -4,9 +4,67 @@ name: Build the Executables
 on: [workflow_dispatch]
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: "Test app"
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          path: ./pyVoice
+
+      - name: Setup Python 3.9.2
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.2
+
+      - name: Setup the server, install dependencies
+        run: |
+          cd pyVoice
+          sudo chmod +x scripts/setup_linux.sh
+          ./scripts/setup_linux.sh
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1.1.1
+        with:
+          virtualenvs-path: ~/.virtualenvs
+          virtualenvs-create: true
+          virtualenvs-in-project: false
+
+      - name: Install Poetry dependencies
+        run: |
+          cd pyVoice
+          poetry install
+
+      - name: Run pyTest
+        # continue-on-error: true
+        id: pytest
+        run: |
+          cd pyVoice
+          poetry run pytest --html=test-report.html --self-contained-html
+
+      - name: Upload test report to artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results-${{ github.sha }}
+          path: |
+            pyVoice/test-report.html
+            pyVoice/logs/pyvoice.log
+
+      - name: Notify Success
+        uses: ShaunLWM/action-pushbullet@master
+        if: steps.pytest.outcome == 'success'
+        env:
+          PB_TOKEN: ${{ secrets.PB_TOKEN }}
+          PB_TITLE: pyVoice Tests  - Success
+          PB_TEXT: The pyVoice repo has been tested with no errors!
+
   build-linux:
     runs-on: ubuntu-latest
     name: "Build for Linux"
+    needs: test
 
     steps:
       - name: Checkout the repository
@@ -41,7 +99,7 @@ jobs:
         uses: JackMcKew/pyinstaller-action-linux@main
         with:
           path: pyVoice
-          spec: pyVoice/pyinstaller/linux_spec.spec
+          spec: pyVoice/pyinstaller/linux.spec
 
       - name: ZIP the contents
         run: |
