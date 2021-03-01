@@ -211,7 +211,7 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     name: "Notify"
-    needs: [build-linux]
+    needs: [build-linux, build-windows, build-mac]
 
     steps:
       - name: Notify Pushbullet
