@@ -37,14 +37,14 @@ jobs:
           poetry install
 
       - name: Run pyTest
-        continue-on-error: true
+        # continue-on-error: true
         id: pytest
         run: |
           cd pyVoice
           poetry run pytest --html=test-report.html --self-contained-html
 
       - name: Upload test report to artifacts
-        # if: steps.pytest.outcome != 'success' || steps.pytest.outcome == 'success'
+        if: steps.pytest.outcome != 'success' || steps.pytest.outcome == 'success'
         uses: actions/upload-artifact@v2
         with:
           name: test-report
@@ -57,11 +57,3 @@ jobs:
           PB_TOKEN: ${{ secrets.PB_TOKEN }}
           PB_TITLE: pyVoice Tests  - Success
           PB_TEXT: The pyVoice repo has been tested with no errors!
-
-      - name: Notify Error
-        uses: ShaunLWM/action-pushbullet@master
-        if: steps.pytest.outcome != 'success'
-        env:
-          PB_TOKEN: ${{ secrets.PB_TOKEN }}
-          PB_TITLE: pyVoice Tests  - Error
-          PB_TEXT: The pyVoice repo has been tested with errors!
