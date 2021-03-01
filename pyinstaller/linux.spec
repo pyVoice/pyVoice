@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['run.py'],
-             pathex=['/home/afonso/Desktop/pyvoice'],
+             pathex=['pyvoice'],
              binaries=[],
              datas=[('src/data', 'data/'), ('.venv/lib/python3.9/site-packages/pyfiglet', 'pyfiglet/')],
              hiddenimports=[],
