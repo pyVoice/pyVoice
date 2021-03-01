@@ -50,10 +50,18 @@ jobs:
           name: test-report
           path: pyVoice/test-report.html
 
-      - name: Notify
+      - name: Notify Success
         uses: ShaunLWM/action-pushbullet@master
         if: steps.pytest.outcome == 'success'
         env:
           PB_TOKEN: ${{ secrets.PB_TOKEN }}
-          PB_TITLE: pyVoice Tests  - Sucess
+          PB_TITLE: pyVoice Tests  - Success
           PB_TEXT: The pyVoice repo has been tested with no errors!
+
+      - name: Notify Error
+        uses: ShaunLWM/action-pushbullet@master
+        if: steps.pytest.outcome != 'success'
+        env:
+          PB_TOKEN: ${{ secrets.PB_TOKEN }}
+          PB_TITLE: pyVoice Tests  - Error
+          PB_TEXT: The pyVoice repo has been tested with errors!
