@@ -46,22 +46,23 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Run pyTest
+        continue-on-error: true
         id: pytest
         run: |
           cd pyVoice
           poetry run pytest --html=test-report.html --self-contained-html
 
       - name: Upload test report to artifacts
-        if: steps.pytest.outcome != 'success' || steps.pytest.outcome == 'success'
+        # if: steps.pytest.outcome != 'success' || steps.pytest.outcome == 'success'
         uses: actions/upload-artifact@v2
         with:
           name: test-report
           path: test-report.html
 
       - name: Notify
-        if: steps.pytest.outcome == 'success'
         uses: ShaunLWM/action-pushbullet@master
+        if: steps.pytest.outcome == 'success'
         env:
           PB_TOKEN: ${{ secrets.PB_TOKEN }}
           PB_TITLE: pyVoice Tests  - Sucess
-          PB_TEXT: The pyVoice repo has been tested successfully!
+          PB_TEXT: The pyVoice repo has been tested with no errors!
