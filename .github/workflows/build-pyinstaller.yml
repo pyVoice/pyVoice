@@ -1,11 +1,12 @@
 name: Build the Executables
 
-on: [push, pull_request, workflow_dispatch]
+# on: [push, pull_request, workflow_dispatch]
+on: [workflow_dispatch]
 
 jobs:
-  build-mac:
-    runs-on: macos-10.15
-    name: "Build for MacOS"
+  build-linux:
+    runs-on: ubuntu-latest
+    name: "Build for Linux"
 
     steps:
       - name: Checkout the repository
@@ -18,12 +19,11 @@ jobs:
         with:
           python-version: 3.9.2
 
-      # verify the scripts
       - name: Setup the server, install dependencies
         run: |
           cd pyVoice
-          sudo chmod +x scripts/setup_macos.sh
-          ./scripts/setup_macos.sh
+          sudo chmod +x scripts/setup_linux.sh
+          ./scripts/setup_linux.sh
 
       - name: Install Poetry
         uses: snok/install-poetry@v1.1.1
@@ -37,18 +37,21 @@ jobs:
           cd pyVoice
           poetry install
 
-      # TODO: build using pyInstaller
+      - name: Build the executable with pyInstaller
+        uses: JackMcKew/pyinstaller-action-linux@main
+        with:
+          path: pyVoice
+          spec: pyVoice/pyinstaller/linux_spec.spec
 
       - name: ZIP the contents
         run: |
-          zip -r pyVoice-MacOS.zip pyVoice/output
+          zip -r pyVoice-linux.zip pyVoice/dist/pyVoice_linux
 
-      - name: Upload test report to artifacts
-        if: ${{ always() }}
+      - name: Upload built executable to artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: test-results-${{ github.sha }}
-          path: pyVoice/output
+          name: pyVoice_linux-${{ github.sha }}
+          path: pyVoice_linux.zip
 
       - name: Notify Success
         uses: ShaunLWM/action-pushbullet@master
