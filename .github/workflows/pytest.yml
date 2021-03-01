@@ -28,12 +28,13 @@ jobs:
 
       - name: Setup Poetry environment
         run: |
-          pip install -U setuptools wheel poetry
           cd pyVoice
+          pip install -U setuptools wheel poetry
           poetry install
 
       - name: Run pyTest
         run: |
+          cd pyVoice
           poetry shell
           pytest --html=test-report.html --self-contained-html
 

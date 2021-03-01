@@ -7,5 +7,6 @@ echo "Setup Python 3.9 dev..."
 sudo apt install python3.9-dev
 
 echo "Setup Vext and Gi"
+pip install -U setuptools wheel
 pip install vext
 pip install vext.gi
