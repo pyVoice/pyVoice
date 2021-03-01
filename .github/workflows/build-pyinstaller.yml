@@ -98,7 +98,7 @@ jobs:
       - name: Run pyInstaller
         run: |
           cd pyVoice
-          pyinstaller --noconfirm --onedir --console --icon "favicon.ico" --name "pyVoice_linux" --add-data "src/data:data/" --add-data ".venv/lib/python3.9/site-packages/pyfiglet:pyfiglet/"  "run.py"
+          poetry run pyinstaller --noconfirm --onedir --console --icon "favicon.ico" --name "pyVoice_linux" --add-data "src/data:data/" --add-data ".venv/lib/python3.9/site-packages/pyfiglet:pyfiglet/"  "run.py"
 
       # - name: Run pyInstaller
       #   run: |
