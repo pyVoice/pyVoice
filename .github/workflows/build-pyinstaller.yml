@@ -19,7 +19,7 @@ jobs:
   #       with:
   #         python-version: 3.9.2
 
-  #     - name: Setup the server, install dependencies
+  #     - name: Install APT packages
   #       run: |
   #         cd pyVoice
   #         sudo chmod +x scripts/setup_linux.sh
@@ -77,7 +77,7 @@ jobs:
         with:
           python-version: 3.9.2
 
-      - name: Setup the server, install dependencies
+      - name: Install APT packages
         run: |
           cd pyVoice
           sudo chmod +x scripts/setup_linux.sh
@@ -98,7 +98,12 @@ jobs:
       - name: Run pyInstaller
         run: |
           cd pyVoice
-          poetry run pyinstaller pyinstaller/linux.spec
+          pyinstaller --noconfirm --onedir --console --icon "favicon.ico" --name "pyVoice_linux" --add-data "src/data:data/" --add-data ".venv/lib/python3.9/site-packages/pyfiglet:pyfiglet/"  "run.py"
+
+      # - name: Run pyInstaller
+      #   run: |
+      #     cd pyVoice
+      #     poetry run pyinstaller pyinstaller/linux.spec
 
       # - name: Build the executable with pyInstaller
       #   uses: JackMcKew/pyinstaller-action-linux@main
