@@ -98,18 +98,7 @@ jobs:
       - name: Run pyInstaller
         run: |
           cd pyVoice
-          poetry run pyinstaller --noconfirm --onedir --console --icon "favicon.ico" --name "pyVoice_linux" --add-data "src/data:data/" --add-data ".venv/lib/python3.9/site-packages/pyfiglet:pyfiglet/"  "run.py"
-
-      # - name: Run pyInstaller
-      #   run: |
-      #     cd pyVoice
-      #     poetry run pyinstaller pyinstaller/linux.spec
-
-      # - name: Build the executable with pyInstaller
-      #   uses: JackMcKew/pyinstaller-action-linux@main
-      #   with:
-      #     path: pyVoice
-      #     spec: pyVoice/pyinstaller/linux.spec
+          poetry run pyinstaller --noconfirm --onedir --console --icon "pyinstaller/favicon.ico" --name "pyVoice_linux" --add-data "src/data:data/" --add-data ".venv/lib/python3.9/site-packages/pyfiglet:pyfiglet/" "run.py"
 
       - name: ZIP the contents
         run: |
@@ -120,11 +109,16 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: pyVoice_linux-${{ github.sha }}
-          path: pyVoice_linux.zip
+          path: pyVoice-linux.zip
 
-      - name: Notify Success
+  notify:
+    runs-on: ubuntu-latest
+    name: "Notify"
+    needs: [build-linux]
+
+    steps:
+      - name: Notify Pushbullet
         uses: ShaunLWM/action-pushbullet@master
-        if: steps.pytest.outcome == 'success'
         env:
           PB_TOKEN: ${{ secrets.PB_TOKEN }}
           PB_TITLE: pyVoice Tests  - Success
