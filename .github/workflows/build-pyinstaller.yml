@@ -1,0 +1,59 @@
+name: Build the Executables
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build-mac:
+    runs-on: macos-10.15
+    name: "Build for MacOS"
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          path: ./pyVoice
+
+      - name: Setup Python 3.9.2
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.2
+
+      # verify the scripts
+      - name: Setup the server, install dependencies
+        run: |
+          cd pyVoice
+          sudo chmod +x scripts/setup_macos.sh
+          ./scripts/setup_macos.sh
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1.1.1
+        with:
+          virtualenvs-path: ~/.virtualenvs
+          virtualenvs-create: true
+          virtualenvs-in-project: false
+
+      - name: Install Poetry dependencies
+        run: |
+          cd pyVoice
+          poetry install
+
+      # TODO: build using pyInstaller
+
+      - name: ZIP the contents
+        run: |
+          zip -r pyVoice-MacOS.zip pyVoice/output
+
+      - name: Upload test report to artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results-${{ github.sha }}
+          path: pyVoice/output
+
+      - name: Notify Success
+        uses: ShaunLWM/action-pushbullet@master
+        if: steps.pytest.outcome == 'success'
+        env:
+          PB_TOKEN: ${{ secrets.PB_TOKEN }}
+          PB_TITLE: pyVoice Tests  - Success
+          PB_TEXT: The pyVoice repo has been tested with no errors!
