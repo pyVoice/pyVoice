@@ -20,6 +20,11 @@ jobs:
       - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
 
+      - name: Setup the server, install dependencies
+        run: |
+          sudo chmod +x scripts/setup_linux.sh
+          ./scripts/setup_linux.sh
+
       - name: Setup Poetry environment
         run: |
           pip install -U setuptools wheel poetry
