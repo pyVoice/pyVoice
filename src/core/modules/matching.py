@@ -14,7 +14,6 @@ from src.core.commands import (
     cmd_note_read,
     cmd_time,
     cmd_weather,
-    cmd_weather_forecast
 )
 
 # match command name with module
@@ -22,7 +21,6 @@ commands = {
     "time": cmd_time,
     "date": cmd_date,
     "weather": cmd_weather,
-    "weatherforecast": cmd_weather_forecast,
     "news": cmd_google_news,
     "echo": cmd_echo,
     "note": cmd_note_read,

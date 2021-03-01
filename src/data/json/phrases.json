@@ -29,16 +29,6 @@
       "data": ["qual o tempo", "qual é o tempo"]
     }
   },
-  "weatherforecast": {
-    "en-US": {
-      "keyword": "weather report",
-      "data": ["what's the weather report"]
-    },
-    "pt-PT": {
-      "keyword": "meteorologia",
-      "data": ["qual a meteorologia"]
-    }
-  },
   "news": {
     "en-US": {
       "keyword": "news",
@@ -102,7 +92,7 @@
   "note_clear": {
     "en-US": {
       "keyword": "*",
-      "data": ["clear notes"]
+      "data": ["clear notes", "clear my notes", "clear all notes"]
     },
     "pt-PT": {
       "keyword": "*",
