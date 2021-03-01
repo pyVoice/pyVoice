@@ -1,6 +1,7 @@
 from typing import Any
-from src.main import Assistant
+
 from src.core.modules import matching
+from src.main import Assistant
 
 
 def print_results(input: Any, result: Any, expected: Any) -> None:
@@ -40,7 +41,6 @@ class TestMatching:
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
-        # assert matching.execute_match()
 
     def test_cmd_time(self) -> None:
         mock_input = "what's the time"
@@ -56,7 +56,6 @@ class TestMatching:
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
-        # assert matching.execute_match()
 
     def test_cmd_about_me(self) -> None:
         mock_input = "who are you"
@@ -72,7 +71,6 @@ class TestMatching:
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
-        # assert matching.execute_match()
 
     def test_cmd_echo(self) -> None:
         mock_input = "repeat testing"
@@ -88,7 +86,6 @@ class TestMatching:
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
-        # assert matching.execute_match()
 
     def test_cmd_google_search(self) -> None:
         mock_input = "how old is Elon Musk"
@@ -104,7 +101,6 @@ class TestMatching:
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
-        # assert matching.execute_match()
 
     def test_cmd_google_news(self) -> None:
         mock_input = "tell me the news"
@@ -120,7 +116,6 @@ class TestMatching:
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
-        # assert matching.execute_match()
 
     def test_cmd_note_add(self) -> None:
         mock_input = "new note i'm testing"
@@ -136,7 +131,6 @@ class TestMatching:
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
-        # assert matching.execute_match()
 
     def test_cmd_note_read(self) -> None:
         mock_input = "read my notes"
@@ -152,4 +146,33 @@ class TestMatching:
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
-        # assert matching.execute_match()
+
+    def test_cmd_note_clear(self) -> None:
+        mock_input = "clear my notes"
+        expected_match = {
+            "name": "note_clear",
+            "text": mock_input,
+            "input": mock_input
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+
+    def test_cmd_weather(self) -> None:
+        mock_input = "what's the weather"
+        expected_match = {
+            "name": "weather",
+            "text": mock_input,
+            "input": mock_input
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
