@@ -84,8 +84,8 @@ def test_match(input):
 def google_match(input):
     log.debug("Google Search...")
     try:
-        cmd_google_search.ex(input)
         cmd = {"name": "google_search", "text": input, "input": input}
+        cmd_google_search.ex(input)
         return cmd
     except:
         log.debug("No result from Google Search...")
