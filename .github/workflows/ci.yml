@@ -13,10 +13,10 @@ jobs:
         with:
           path: ./pyVoice
 
-      - name: Setup Python 3.9
+      - name: Setup Python 3.9.2
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: 3.9.2
 
       - name: Setup the server, install dependencies
         run: |
@@ -47,7 +47,7 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
         with:
-          name: test-report
+          name: test-results-${{ github.sha }}
           path: |
             pyVoice/test-report.html
             pyVoice/logs/pyvoice.log
