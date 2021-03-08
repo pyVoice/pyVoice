@@ -11,6 +11,7 @@ from src.core.modules.startup import load_settings
 # read from settings JSON file
 settings_file_data = load_settings()
 
+
 KEYWORD = settings_file_data["keyword"]
 
 LANGUAGE = settings_file_data["language"]
@@ -25,7 +26,7 @@ TTS_ENGINE = settings_file_data["tts_engine"]
 TTS_SUBTITLE = settings_file_data["tts_subtitle"]
 TTS_AUTODETECT = settings_file_data["tts_autodetect"]
 
-VERSION = __version__
+VERSION = __version__.__version__
 
 if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
     # Bundled/installed mode
@@ -49,5 +50,12 @@ LOGGER_LEVEL = logging.DEBUG
 FILE_LOGGER_PATH = settings_file_data["file_logger_path"]
 
 OPERATING_SYSTEM = settings_file_data["operating_system"]
+DEVICE_ID = settings_file_data["device_id"]
+API_KEY = settings_file_data["api_key"]
+API_URL = settings_file_data["api_url"]
 
-ENV = "prod" if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS") is True else "dev"
+ENV = (
+    "prod"
+    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS") is True
+    else "dev"
+)

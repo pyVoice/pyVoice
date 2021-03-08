@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: 3.9.2
 
-      - name: Setup the server, install dependencies
+      - name: Install APT packages
         run: |
           cd pyVoice
           sudo chmod +x scripts/setup_linux.sh
