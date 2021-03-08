@@ -5,8 +5,7 @@ from printy import printy
 from pyfiglet import Figlet
 
 from src import settings
-from src.core.modules import (api, log, matching, replying, sentry, startup,
-                              stt, tts)
+from src.core.modules import api, log, matching, replying, sentry, startup, stt, tts
 
 
 class Assistant:
