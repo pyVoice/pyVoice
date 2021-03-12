@@ -31,21 +31,21 @@ def setup() -> None:
     if platform.system() == "Windows" and settings.TTS_AUTODETECT:
         try:
             import win32com.client as win32com
+
             engine = win32com.Dispatch("SAPI.SpVoice")
             log.debug("Using SAPI")
         except ModuleNotFoundError:
             log.error("Couldn't find module named 'win32com.client'")
-            log.error(
-                "Check installation or install via 'pip install pypiwin32'")
+            log.error("Check installation or install via 'pip install pypiwin32'")
     else:
         try:
             from gtts import gTTS
+
             engine = gTTS
             log.debug("Using gTTS")
         except ModuleNotFoundError:
             log.error("Couldn't find module named 'gTTS'")
-            log.error(
-                "Check installation or install via 'pip install gTTS'")
+            log.error("Check installation or install via 'pip install gTTS'")
 
         log.info("(!) Using slow TTS engine on your OS")
 

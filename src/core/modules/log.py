@@ -14,7 +14,11 @@ create_log_dir()
 logger = logging.getLogger(settings.LOGGER_NAME)
 
 file_logger = logging.FileHandler(settings.FILE_LOGGER_PATH)
-file_logger.setFormatter(logging.Formatter("%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s"))
+file_logger.setFormatter(
+    logging.Formatter(
+        "%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s]  %(message)s"
+    )
+)
 
 logger.addHandler(file_logger)
 logger.setLevel(settings.LOGGER_LEVEL)

@@ -1,12 +1,11 @@
+import sys
 import traceback
 
-from pyfiglet import Figlet
 from printy import printy
+from pyfiglet import Figlet
 
 from src import settings
-from src.core.modules import log, tts, stt, matching, replying, sentry, startup
-
-# TODO: make quit work
+from src.core.modules import log, matching, replying, sentry, startup, stt, tts
 
 
 class Assistant:
@@ -32,8 +31,12 @@ class Assistant:
 
         printy(self.fig.renderText("pyVoice"), "nB")
         print(replying.get_reply("greet", system=True).format(settings.KEYWORD))
-        print(replying.get_reply("greet", system=True, stage=1).format(settings.KEYWORD))
-        print(replying.get_reply("greet", system=True, stage=2).format(settings.KEYWORD))
+        print(
+            replying.get_reply("greet", system=True, stage=1).format(settings.KEYWORD)
+        )
+        print(
+            replying.get_reply("greet", system=True, stage=2).format(settings.KEYWORD)
+        )
 
         tts.speak(replying.get_reply("greet", system=True, stage=3))
 
@@ -44,7 +47,7 @@ class Assistant:
         self.clean()
 
         log.info("Bye!")
-        exit()
+        sys.exit()
 
     def run(self):
         self.greet()
