@@ -24,7 +24,6 @@ pyaudio = [
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.8.4"
-pre-commit = "^2.10.1"
 mypy = "^0.812"
 pyinstaller = "^4.2"
 auto-py-to-exe = "^2.8.0"
