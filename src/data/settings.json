@@ -26,9 +26,7 @@
   },
   "api_key": "soapnF2g.FDlkT5B3JcJySRewQG4rbvwtW0AC1xM6",
   "api_url": "http://localhost:8000/devices/",
-  "operating_system": "Windows-10-10.0.19041-SP0",
-  "device_id": "8c7f43d4-55d2-41a8-b92a-de43c4e58751",
+  "registered": false,
   "logger_name": "pyvoice",
-  "file_logger_path": "logs/pyvoice.log",
-  "first_run": true
+  "file_logger_path": "logs/pyvoice.log"
 }

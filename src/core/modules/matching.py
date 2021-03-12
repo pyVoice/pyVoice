@@ -14,6 +14,7 @@ from src.core.commands import (
     cmd_note_read,
     cmd_time,
     cmd_weather,
+    cmd_register_install,
 )
 
 # match command name with module
@@ -26,7 +27,8 @@ commands = {
     "note": cmd_note_read,
     "note_add": cmd_note_add,
     "note_clear": cmd_note_clear,
-    "me_info": cmd_about_me
+    "me_info": cmd_about_me,
+    "register_install": cmd_register_install,
 }
 
 
@@ -63,21 +65,38 @@ def test_match(input):
         keyword = phrases_file_data[cmd_title][settings.LANGUAGE]["keyword"]
         # check if keyword in input
         if keyword in input.lower():
-            tts.speak(replying.get_reply(["matching", "ask"], system=True, module=True).format(keyword))
+            tts.speak(
+                replying.get_reply(
+                    ["matching", "ask"], system=True, module=True
+                ).format(keyword)
+            )
             yn_input = stt.listen_for_binary()
             # if 'yes'
             if yn_input:
                 # read the phrases file
-                with open(settings.PHRASES_FILE_PATH, "r+", encoding="utf-8") as phrases_file:
+                with open(
+                    settings.PHRASES_FILE_PATH, "r+", encoding="utf-8"
+                ) as phrases_file:
                     phrases_file_data = json.load(phrases_file)
                 # add the new phrase to the command list
-                phrases_file_data[cmd_title][settings.LANGUAGE]["data"].append(input.lower())
+                phrases_file_data[cmd_title][settings.LANGUAGE]["data"].append(
+                    input.lower()
+                )
                 # write the list to the file
-                with open(settings.PHRASES_FILE_PATH, "r+", encoding="utf-8") as phrases_file:
-                    json.dump(phrases_file_data, phrases_file, indent=2, ensure_ascii=False)
-                tts.speak(replying.get_reply(["matching", "added"], system=True, module=True))
-                cmd = {"name": cmd_title, "text": phrases_file_data[cmd_title]
-                       [settings.LANGUAGE]["data"][0], "input": input}
+                with open(
+                    settings.PHRASES_FILE_PATH, "r+", encoding="utf-8"
+                ) as phrases_file:
+                    json.dump(
+                        phrases_file_data, phrases_file, indent=2, ensure_ascii=False
+                    )
+                tts.speak(
+                    replying.get_reply(["matching", "added"], system=True, module=True)
+                )
+                cmd = {
+                    "name": cmd_title,
+                    "text": phrases_file_data[cmd_title][settings.LANGUAGE]["data"][0],
+                    "input": input,
+                }
                 return cmd
 
 

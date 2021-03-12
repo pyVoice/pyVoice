@@ -8,6 +8,13 @@ import sys
 from src import __version__
 from src.core.modules.startup import load_settings
 
+
+settings_file_path = (
+    "./data/settings.json"
+    if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS") is True
+    else "src/data/settings.json"
+)
+
 # read from settings JSON file
 settings_file_data = load_settings()
 
@@ -49,10 +56,9 @@ LOGGER_NAME = settings_file_data["logger_name"]
 LOGGER_LEVEL = logging.DEBUG
 FILE_LOGGER_PATH = settings_file_data["file_logger_path"]
 
-OPERATING_SYSTEM = settings_file_data["operating_system"]
-DEVICE_ID = settings_file_data["device_id"]
 API_KEY = settings_file_data["api_key"]
 API_URL = settings_file_data["api_url"]
+IS_REGISTERED = settings_file_data["registered"]
 
 ENV = (
     "prod"

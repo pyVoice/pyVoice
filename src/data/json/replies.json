@@ -122,5 +122,21 @@
     "pt-PT": {
       "data": ["Eu guardei as seguintes notas", "Não tem notas"]
     }
+  },
+  "register_install": {
+    "en-US": {
+      "data": [
+        "This installation was registered with success.",
+        "An error ocurred while registering this installation. Try again later.",
+        "This installation is already registered."
+      ]
+    },
+    "pt-PT": {
+      "data": [
+        "Esta instalação foi registada com sucesso.",
+        "Ocorreu um erro ao registar a instalação. Tente novamente mais tarde.",
+        "Esta instalação já foi registada."
+      ]
+    }
   }
 }

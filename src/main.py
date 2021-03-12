@@ -5,7 +5,7 @@ from printy import printy
 from pyfiglet import Figlet
 
 from src import settings
-from src.core.modules import api, log, matching, replying, sentry, startup, stt, tts
+from src.core.modules import log, matching, replying, sentry, startup, stt, tts
 
 
 class Assistant:
@@ -22,10 +22,6 @@ class Assistant:
         sentry.setup()
         stt.setup()
         tts.setup()
-
-        # API registration
-        api.register_device()
-        startup.switch_settings_field()
 
     def clean(self) -> None:
         log.debug("Cleaning...")

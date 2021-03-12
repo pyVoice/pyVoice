@@ -1,13 +1,14 @@
 import sentry_sdk
 
-from src import settings, __version__
+from src import settings
 from src.core.modules import log
+from src.core.modules.utils import get_operating_system
 
 
 def setup() -> None:
     # get local environment
-    version = __version__.__version__
-    operating_system = settings.OPERATING_SYSTEM
+    operating_system = get_operating_system()
+    version = settings.VERSION
     environment = settings.ENV
 
     # init the Sentry SDK
