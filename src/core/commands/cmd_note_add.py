@@ -3,8 +3,6 @@ import json
 from src import settings
 from src.core.modules import tts, replying
 
-# TODO: replace by sys module in paths
-
 
 def ex(cmd):
     with open(settings.NOTES_FILE_PATH, "r+", encoding="utf-8") as notes_file:

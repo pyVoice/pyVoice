@@ -18,7 +18,6 @@ def ex(cmd):
     source_code = requests.get(url).text
     soup = BeautifulSoup(source_code, features="html.parser")
 
-    news = []
     class_name = "ipQwMb ekueJc RD0gLb"
     tags = soup.find_all("h3", {"class": class_name})
 

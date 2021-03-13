@@ -13,19 +13,13 @@ def setup() -> None:
 
     # init the Sentry SDK
     sentry_sdk.init(
-        dsn=settings.SENTRY_DSN,
-        environment=environment,
-        attach_stacktrace=True
+        dsn=settings.SENTRY_DSN, environment=environment, attach_stacktrace=True
     )
 
     # add context to Sentry reports
     sentry_sdk.set_context(
         "app",
-        {
-            "version": version,
-            "operating_system": operating_system,
-            "env": environment
-        }
+        {"version": version, "operating_system": operating_system, "env": environment},
     )
 
     log.info("Error reporting setup!")

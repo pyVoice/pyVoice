@@ -13,7 +13,8 @@ def ex(cmd):
     except locale.Error:
         try:
             locale.setlocale(
-                locale.LC_TIME, settings.LANGUAGE.replace("-", "_") + ".utf-8")
+                locale.LC_TIME, settings.LANGUAGE.replace("-", "_") + ".utf-8"
+            )
         except locale.Error:
             print("Your locale was not found, using default one")
 
