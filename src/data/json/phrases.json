@@ -49,26 +49,6 @@
       "data": ["repete", "repetir"]
     }
   },
-  "louder": {
-    "en-US": {
-      "keyword": "louder",
-      "data": ["volume up", "more sound"]
-    },
-    "pt-PT": {
-      "keyword": "mais alto",
-      "data": ["aumentar o volume", "mais volume", "volume mais alto"]
-    }
-  },
-  "quieter": {
-    "en-US": {
-      "keyword": "quieter",
-      "data": ["volume down", "less sound"]
-    },
-    "pt-PT": {
-      "keyword": "mais baixo",
-      "data": ["diminuir o volume", "mais baixo", "volume mais baixo"]
-    }
-  },
   "note": {
     "en-US": {
       "keyword": "note",
@@ -117,6 +97,16 @@
     "pt-PT": {
       "keyword": "info",
       "data": ["como me pode ajudar", "quem és tu", "conta-me sobre ti"]
+    }
+  },
+  "quit": {
+    "en-US": {
+      "keyword": "quit",
+      "data": ["exit", "quit", "close"]
+    },
+    "pt-PT": {
+      "keyword": "fechar",
+      "data": ["sair", "fechar"]
     }
   }
 }

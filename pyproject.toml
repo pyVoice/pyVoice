@@ -13,7 +13,7 @@ gTTS = "^2.2.2"
 SpeechRecognition = "^3.8.1"
 playsound = "^1.2.2"
 beautifulsoup4 = "^4.9.3"
-sentry-sdk = "^0.20.3"
+sentry-sdk = "1.0.0"
 pyfiglet = "^0.8.post1"
 printy = "^2.1.1"
 pypiwin32 = { markers = "sys_platform == 'win32'", version = "^223" }

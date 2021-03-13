@@ -1,8 +1,8 @@
-import sys
 import traceback
 
 from printy import printy
 from pyfiglet import Figlet
+from sentry_sdk import capture_exception
 
 from src import settings
 from src.core.modules import log, matching, replying, sentry, startup, stt, tts
@@ -23,9 +23,6 @@ class Assistant:
         stt.setup()
         tts.setup()
 
-    def clean(self) -> None:
-        log.debug("Cleaning...")
-
     def greet(self) -> None:
         log.debug("Greeting...")
 
@@ -44,10 +41,9 @@ class Assistant:
         log.debug("Quitting...")
 
         self.stop = True
-        self.clean()
 
         log.info("Bye!")
-        sys.exit()
+        exit(code=0)
 
     def run(self):
         self.greet()
@@ -70,6 +66,10 @@ class Assistant:
                         log.info("Catched input: '{0}'".format(audio_input))
 
                     cmd = matching.get_match(audio_input)
+
+                    if cmd["name"] == "quit":
+                        self.quit()
+
                     matching.execute_match(cmd)
             except KeyboardInterrupt:
                 log.info("Detected keyboard interruption...")
@@ -78,4 +78,7 @@ class Assistant:
             except:
                 log.error("Unexpected error...")
                 traceback.print_exc()
+
+                # sends the traceback to Sentry
+                capture_exception(traceback.print_exc())
                 break
