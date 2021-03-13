@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pyvoice"
 version = "0.2.0"
-description = ""
+description = "Assistente pessoal, controlado por voz."
 authors = ["Afonso Santos <afonso.faisca1@gmail.com>"]
 license = "MIT"
 
