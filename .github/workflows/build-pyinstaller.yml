@@ -50,9 +50,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: test-results-${{ github.sha }}
-          path: |
-            pyVoice/test-report.html
-            pyVoice/logs/pyvoice.log
+          path: pyVoice/test-report.html
 
       - name: Notify Success
         uses: ShaunLWM/action-pushbullet@master
@@ -143,12 +141,12 @@ jobs:
       - name: Run pyInstaller
         run: |
           cd pyVoice
-          poetry run pyinstaller --noconfirm --onedir --console --icon "pyinstaller/favicon.ico" --name "pyVoice" --uac-admin --add-data "src/data;data/" --add-data ".venv/Lib/site-packages/pyfiglet;pyfiglet/" "run.py"
+          poetry run pyinstaller --noconfirm --onedir --console --icon "pyinstaller/favicon.ico" --name "pyVoice_windows" --uac-admin --add-data "src/data;data/" --add-data ".venv/Lib/site-packages/pyfiglet;pyfiglet/" "run.py"
 
       - name: ZIP the contents
         run: |
           cd pyVoice
-          powershell Compress-Archive dist/pyVoice_linux pyVoice-windows.zip
+          powershell Compress-Archive dist/pyVoice_windows pyVoice-windows.zip
 
       - name: Upload built executable to artifacts
         uses: actions/upload-artifact@v2
