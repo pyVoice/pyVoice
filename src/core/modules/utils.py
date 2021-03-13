@@ -36,7 +36,7 @@ def switch_registered_field() -> None:
     with open(settings.settings_file_path, "r") as file:
         orig_file = json.load(file)
 
-    orig_file["registered"] = False
+    orig_file["registered"] = True
 
     with open(settings.settings_file_path, "w") as new_file:
         json.dump(orig_file, new_file, indent=2)

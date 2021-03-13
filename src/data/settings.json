@@ -24,9 +24,9 @@
       "notes_file": "./data/json/notes.json"
     }
   },
-  "api_key": "soapnF2g.FDlkT5B3JcJySRewQG4rbvwtW0AC1xM6",
-  "api_url": "http://localhost:8000/devices/",
-  "registered": false,
+  "api_key": "ZrhGi4Le.cQ5L8CNYrwjV1OZnnblS9rimfVWSf7rB",
+  "api_url": "https://pyvoice-device-api.herokuapp.com/devices/",
+  "registered": true,
   "logger_name": "pyvoice",
   "file_logger_path": "logs/pyvoice.log"
 }

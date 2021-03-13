@@ -10,10 +10,14 @@ def setup() -> None:
     operating_system = get_operating_system()
     version = settings.VERSION
     environment = settings.ENV
+    dsn = settings.SENTRY_DSN
 
     # init the Sentry SDK
     sentry_sdk.init(
-        dsn=settings.SENTRY_DSN, environment=environment, attach_stacktrace=True
+        dsn=dsn,
+        environment=environment,
+        attach_stacktrace=True,
+        sample_rate=1.0,
     )
 
     # add context to Sentry reports
