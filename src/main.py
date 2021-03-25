@@ -67,9 +67,6 @@ class Assistant:
 
                     cmd = matching.get_match(audio_input)
 
-                    if cmd["name"] == "quit":
-                        self.quit()
-
                     matching.execute_match(cmd)
             except KeyboardInterrupt:
                 log.info("Detected keyboard interruption...")
