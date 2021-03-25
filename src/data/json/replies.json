@@ -39,10 +39,10 @@
     "matching": {
       "fail": {
         "en-US": {
-          "data": ["I'm sorry. I cannot help you with that"]
+          "data": ["I'm sorry. I cannot help you with that."]
         },
         "pt-PT": {
-          "data": ["Peço desculpa, mas não o consigo ajudar com isso"]
+          "data": ["Peço desculpa, mas não o consigo ajudar com isso."]
         }
       },
       "ask": {
@@ -145,6 +145,14 @@
     },
     "pt-PT": {
       "data": ["Adeus."]
+    }
+  },
+  "covid": {
+    "en-US": {
+      "data": ["Today, in {0}, there are {1} confirmed Covid-19 cases."]
+    },
+    "pt-PT": {
+      "data": ["Em {0}, no dia de hoje, existem {1} casos confirmados de Covid-19."]
     }
   }
 }
