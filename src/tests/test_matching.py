@@ -147,3 +147,29 @@ class TestMatching:
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
+
+    def test_cmd_register_install(self) -> None:
+        mock_input = "register install"
+        expected_match = {
+            "name": "register_install",
+            "text": mock_input,
+            "input": mock_input,
+        }
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+
+    def test_cmd_coronavirus(self) -> None:
+        mock_input = "covid cases"
+        expected_match = {"name": "covid", "text": mock_input, "input": mock_input}
+
+        matched_cmd = matching.get_match(mock_input)
+
+        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
