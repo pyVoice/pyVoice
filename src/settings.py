@@ -23,8 +23,9 @@ KEYWORD = settings_file_data["keyword"]
 
 LANGUAGE = settings_file_data["language"]
 LANGUAGE_SHORT = settings_file_data["language"][:2]
-
 LOCATION = settings_file_data["location"]
+COUNTRY = settings_file_data["country"]
+
 WEATHER_API_KEY = settings_file_data["weather_api_key"]
 SENTRY_DSN = settings_file_data["sentry_dsn"]
 
