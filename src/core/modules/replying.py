@@ -10,7 +10,7 @@ from src.core.modules import log
 # get reply
 
 
-def get_reply(cmd, system=False, module=False, stage=0):
+def get_reply(cmd, system=False, module=False, stage=0) -> str:
     # keep console clean
     if not system:
         log.debug("Getting reply...")
