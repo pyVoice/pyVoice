@@ -41,6 +41,7 @@ jobs:
           poetry install
 
       - name: Run pyTest
+        id: pytest
         run: |
           cd pyVoice
           poetry run pytest --html=test-report.html --self-contained-html
@@ -214,5 +215,5 @@ jobs:
         uses: ShaunLWM/action-pushbullet@master
         env:
           PB_TOKEN: ${{ secrets.PB_TOKEN }}
-          PB_TITLE: pyVoice Tests  - Success
-          PB_TEXT: The pyVoice repo has been tested with no errors!
+          PB_TITLE: pyVoice Build  - Success
+          PB_TEXT: The build for Win, Linux and Mac has completed, no errors!
