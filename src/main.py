@@ -1,3 +1,4 @@
+import sys
 import traceback
 
 from printy import printy
@@ -43,7 +44,7 @@ class Assistant:
         self.stop = True
 
         log.info("Bye!")
-        exit(code=0)
+        sys.exit(code=0)
 
     def run(self):
         self.greet()
