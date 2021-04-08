@@ -15,7 +15,8 @@ class Assistant:
         self.setup()
         self.stop = False
 
-    def setup(self) -> None:
+    @staticmethod
+    def setup() -> None:
         log.debug("Setup...")
 
         # Initialize engines

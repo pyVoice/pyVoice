@@ -29,7 +29,8 @@ class TestMatching:
         self.instance = Assistant()
         self.instance.setup()
 
-    def test_cmd_date(self) -> None:
+    @staticmethod
+    def test_cmd_date() -> None:
         mock_input = "what's the date"
         expected_match = {"name": "date", "text": mock_input, "input": mock_input}
 
@@ -40,7 +41,8 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_time(self) -> None:
+    @staticmethod
+    def test_cmd_time() -> None:
         mock_input = "what's the time"
         expected_match = {"name": "time", "text": mock_input, "input": mock_input}
 
@@ -51,7 +53,8 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_about_me(self) -> None:
+    @staticmethod
+    def test_cmd_about_me() -> None:
         mock_input = "who are you"
         expected_match = {"name": "me_info", "text": mock_input, "input": mock_input}
 
@@ -62,7 +65,8 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_echo(self) -> None:
+    @staticmethod
+    def test_cmd_echo() -> None:
         mock_input = "repeat testing"
         expected_match = {"name": "echo", "text": "repeat", "input": mock_input}
 
@@ -78,7 +82,8 @@ class TestMatching:
 
     if "GITHUB_ACTIONS" not in os.environ:
 
-        def test_cmd_google_search(self) -> None:
+        @staticmethod
+        def test_cmd_google_search() -> None:
             mock_input = "how old is Elon Musk"
             expected_match = {
                 "name": "google_search",
@@ -93,7 +98,8 @@ class TestMatching:
 
             assert matched_cmd == expected_match
 
-    def test_cmd_google_news(self) -> None:
+    @staticmethod
+    def test_cmd_google_news() -> None:
         mock_input = "tell me the news"
         expected_match = {"name": "news", "text": mock_input, "input": mock_input}
 
@@ -104,7 +110,8 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_note_add(self) -> None:
+    @staticmethod
+    def test_cmd_note_add() -> None:
         mock_input = "new note i'm testing"
         expected_match = {"name": "note_add", "text": "new note", "input": mock_input}
 
@@ -115,7 +122,8 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_note_read(self) -> None:
+    @staticmethod
+    def test_cmd_note_read() -> None:
         mock_input = "read my notes"
         expected_match = {"name": "note", "text": mock_input, "input": mock_input}
 
@@ -126,7 +134,8 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_note_clear(self) -> None:
+    @staticmethod
+    def test_cmd_note_clear() -> None:
         mock_input = "clear my notes"
         expected_match = {"name": "note_clear", "text": mock_input, "input": mock_input}
 
@@ -137,7 +146,8 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_weather(self) -> None:
+    @staticmethod
+    def test_cmd_weather() -> None:
         mock_input = "what's the weather"
         expected_match = {"name": "weather", "text": mock_input, "input": mock_input}
 
