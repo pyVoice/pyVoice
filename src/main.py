@@ -45,7 +45,7 @@ class Assistant:
         self.stop = True
 
         log.info("Bye!")
-        sys.exit(code=0)
+        sys.exit()
 
     def run(self):
         self.greet()
