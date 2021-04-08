@@ -148,7 +148,8 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_register_install(self) -> None:
+    @staticmethod
+    def test_cmd_register_install() -> None:
         mock_input = "register install"
         expected_match = {
             "name": "register_install",
@@ -162,7 +163,8 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_coronavirus(self) -> None:
+    @staticmethod
+    def test_cmd_coronavirus() -> None:
         mock_input = "covid cases"
         expected_match = {"name": "covid", "text": mock_input, "input": mock_input}
 
@@ -172,8 +174,9 @@ class TestMatching:
 
         assert matched_cmd == expected_match
 
-    def test_cmd_commands(self) -> None:
-        mock_input = "commands available"
+    @staticmethod
+    def test_cmd_commands() -> None:
+        mock_input = "the commands"
         expected_match = {"name": "commands", "text": mock_input, "input": mock_input}
 
         matched_cmd = matching.get_match(mock_input)
