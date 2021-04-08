@@ -19,15 +19,14 @@ def register_install() -> json:
         "version": version,
         "location": location,
     }
-    req_headers = {"Authorization": "Api-Key " + settings.API_KEY}
 
     try:
-        req = requests.post(api_url, data=req_data, headers=req_headers)
+        req = requests.post(api_url, data=req_data)
     except Exception:
         log.error("An error ocurred with the API request.")
 
     # debug only
-    print(req_data)
-    print(req.text)
+    # print(req_data)
+    # print(req.text)
 
     return req.json()
