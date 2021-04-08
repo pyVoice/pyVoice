@@ -36,7 +36,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -48,7 +47,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -60,7 +58,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -72,7 +69,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -93,7 +89,6 @@ class TestMatching:
 
             matched_cmd = matching.get_match(mock_input)
 
-            # convert to separate method
             print_results(mock_input, matched_cmd, expected_match)
 
             assert matched_cmd == expected_match
@@ -105,7 +100,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -117,7 +111,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -129,7 +122,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -141,7 +133,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -153,7 +144,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -168,7 +158,6 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match
@@ -179,7 +168,16 @@ class TestMatching:
 
         matched_cmd = matching.get_match(mock_input)
 
-        # convert to separate method
+        print_results(mock_input, matched_cmd, expected_match)
+
+        assert matched_cmd == expected_match
+
+    def test_cmd_commands(self) -> None:
+        mock_input = "commands available"
+        expected_match = {"name": "commands", "text": mock_input, "input": mock_input}
+
+        matched_cmd = matching.get_match(mock_input)
+
         print_results(mock_input, matched_cmd, expected_match)
 
         assert matched_cmd == expected_match

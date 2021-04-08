@@ -154,5 +154,13 @@
     "pt-PT": {
       "data": ["Em {0}, no dia de hoje, existem {1} casos confirmados de Covid-19."]
     }
+  },
+  "commands": {
+    "en-US": {
+      "data": ["To see the available commands, head over to www.pyvoice.tech/commands"]
+    },
+    "pt-PT": {
+      "data": ["Para ver os comandos disponíveis, visite www.pyvoice.tech/comandos"]
+    }
   }
 }

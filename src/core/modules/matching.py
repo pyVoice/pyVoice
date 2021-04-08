@@ -17,6 +17,7 @@ from src.core.commands import (
     cmd_register_install,
     cmd_quit,
     cmd_coronavirus,
+    cmd_commands,
 )
 
 # match command name with module
@@ -33,6 +34,7 @@ commands = {
     "register_install": cmd_register_install,
     "quit": cmd_quit,
     "covid": cmd_coronavirus,
+    "commands": cmd_commands,
 }
 
 
