@@ -57,7 +57,6 @@ LOGGER_NAME = settings_file_data["logger_name"]
 LOGGER_LEVEL = logging.DEBUG
 FILE_LOGGER_PATH = settings_file_data["file_logger_path"]
 
-API_KEY = settings_file_data["api_key"]
 API_URL = settings_file_data["api_url"]
 IS_REGISTERED = settings_file_data["registered"]
 
