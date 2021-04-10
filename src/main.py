@@ -10,6 +10,11 @@ from src.core.modules import log, matching, replying, sentry, startup, stt, tts
 
 
 class Assistant:
+    """
+    The main class for the application.
+    Runs the main loop.
+    """
+
     def __init__(self):
         self.fig = Figlet(font="larry3d")
         self.setup()
