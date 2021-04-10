@@ -139,14 +139,6 @@
       ]
     }
   },
-  "quit": {
-    "en-US": {
-      "data": ["Bye."]
-    },
-    "pt-PT": {
-      "data": ["Adeus."]
-    }
-  },
   "covid": {
     "en-US": {
       "data": ["Today, in {0}, there are {1} confirmed Covid-19 cases."]

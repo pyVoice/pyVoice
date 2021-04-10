@@ -99,16 +99,6 @@
       "data": ["como me pode ajudar", "quem és tu", "conta-me sobre ti"]
     }
   },
-  "quit": {
-    "en-US": {
-      "keyword": "quit",
-      "data": ["exit", "quit", "close"]
-    },
-    "pt-PT": {
-      "keyword": "fechar",
-      "data": ["sair", "fechar"]
-    }
-  },
   "covid": {
     "en-US": {
       "keyword": "covid",

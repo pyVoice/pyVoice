@@ -15,7 +15,6 @@ from src.core.commands import (
     cmd_time,
     cmd_weather,
     cmd_register_install,
-    cmd_quit,
     cmd_coronavirus,
     cmd_commands,
 )
@@ -32,7 +31,6 @@ commands = {
     "note_clear": cmd_note_clear,
     "me_info": cmd_about_me,
     "register_install": cmd_register_install,
-    "quit": cmd_quit,
     "covid": cmd_coronavirus,
     "commands": cmd_commands,
 }
