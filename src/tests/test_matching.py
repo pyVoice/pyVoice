@@ -5,17 +5,17 @@ from src.core.modules import matching
 from src.main import Assistant
 
 
-def print_results(input: Any, result: Any, expected: Any) -> None:
+def print_results(cmd_input: Any, result: Any, expected: Any) -> None:
     """
     Prints the result from a specific test
 
     Args:
-        input (Any): The input given to the test
+        cmd_input (Any): The input given to the test
         result (Any): The test result
         expected (Any): The expected test result
     """
 
-    print("\n[i] Input: {0}".format(input))
+    print("\n[i] Input: {0}".format(cmd_input))
     print("[i] Result: {0}".format(result))
     print("[i] Expected: {0}".format(expected))
 

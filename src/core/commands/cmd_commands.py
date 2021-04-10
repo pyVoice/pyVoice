@@ -1,5 +1,5 @@
 from src.core.modules import tts, replying
 
 
-def ex(input):
+def ex(cmd):
     tts.speak(replying.get_reply("help"))

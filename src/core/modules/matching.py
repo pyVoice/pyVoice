@@ -36,8 +36,8 @@ commands = {
 }
 
 
-def check_match(input):
-    cmd = {"name": None, "text": None, "input": input}
+def check_match(cmd_input):
+    cmd = {"name": None, "text": None, "input": cmd_input}
     # get phrases file data as json
     with open(settings.PHRASES_FILE_PATH, encoding="utf-8") as phrases_file:
         phrases_file_data = json.load(phrases_file)
@@ -47,9 +47,9 @@ def check_match(input):
         # for every data line of command title (in prefered language)
         for cmd_phrase in phrases_file_data[cmd_title][settings.LANGUAGE]["data"]:
             # check if in input
-            if cmd_phrase in input.lower():
+            if cmd_phrase in cmd_input.lower():
                 # ready for return
-                cmd = {"name": cmd_title, "text": cmd_phrase, "input": input}
+                cmd = {"name": cmd_title, "text": cmd_phrase, "input": cmd_input}
                 return cmd
 
 
@@ -58,8 +58,8 @@ test match
 """
 
 
-def test_match(input):
-    cmd = {"name": None, "text": None, "input": input}
+def test_match(cmd_input):
+    cmd = {"name": None, "text": None, "input": cmd_input}
     # get phrases file data as json
     with open(settings.PHRASES_FILE_PATH, encoding="utf-8") as phrases_file:
         phrases_file_data = json.load(phrases_file)
@@ -68,7 +68,7 @@ def test_match(input):
     for cmd_title in phrases_file_data:
         keyword = phrases_file_data[cmd_title][settings.LANGUAGE]["keyword"]
         # check if keyword in input
-        if keyword in input.lower():
+        if keyword in cmd_input.lower():
             tts.speak(
                 replying.get_reply(
                     ["matching", "ask"], system=True, module=True
@@ -84,7 +84,7 @@ def test_match(input):
                     phrases_file_data = json.load(phrases_file)
                 # add the new phrase to the command list
                 phrases_file_data[cmd_title][settings.LANGUAGE]["data"].append(
-                    input.lower()
+                    cmd_input.lower()
                 )
                 # write the list to the file
                 with open(
@@ -99,32 +99,32 @@ def test_match(input):
                 cmd = {
                     "name": cmd_title,
                     "text": phrases_file_data[cmd_title][settings.LANGUAGE]["data"][0],
-                    "input": input,
+                    "input": cmd_input,
                 }
                 return cmd
 
 
-def google_match(input):
+def google_match(cmd_input):
     log.debug("Google Search...")
     try:
-        cmd = {"name": "google_search", "text": input, "input": input}
-        cmd_google_search.ex(input)
+        cmd = {"name": "google_search", "text": cmd_input, "input": cmd_input}
+        cmd_google_search.ex(cmd_input)
         return cmd
     except:
         log.debug("No result from Google Search...")
 
 
-def get_match(input):
+def get_match(cmd_input):
     log.debug("Matching...")
 
-    cmd = {"name": None, "text": None, "input": input}
+    cmd = {"name": None, "text": None, "input": cmd_input}
 
     # all jobs in correct order
     jobs = [check_match, test_match, google_match]
 
     # for every job
     for job in range(len(jobs)):
-        cmd = jobs[job](input)
+        cmd = jobs[job](cmd_input)
         # check if matched
         if cmd is not None:
             log.debug("Matched command '{}'".format(cmd["name"]))

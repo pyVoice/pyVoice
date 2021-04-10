@@ -8,8 +8,8 @@ from src.core.modules import tts
 # search Google and get result
 
 
-def ex(input):
-    keywords = input.replace(settings.KEYWORD + " ", "").lower().replace(" ", "+")
+def ex(cmd):
+    keywords = cmd.replace(settings.KEYWORD + " ", "").lower().replace(" ", "+")
     url = "https://www.google.com/search?q={0}&hl={1}".format(
         keywords, settings.LANGUAGE_SHORT
     )

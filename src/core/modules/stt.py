@@ -89,14 +89,14 @@ def recognize_keyword() -> None:
     log.debug("Recognizing keyword...")
 
     try:
-        input = recognizer.recognize_google(audio, language=settings.LANGUAGE)
+        rec_input = recognizer.recognize_google(audio, language=settings.LANGUAGE)
 
-        if settings.KEYWORD in input.lower():
+        if settings.KEYWORD in rec_input.lower():
             log.debug("Keyword detected!")
             # stop listening
             keyword_detected = True
         else:
-            log.debug("Keyword not detected in '{0}'".format(input))
+            log.debug("Keyword not detected in '{0}'".format(rec_input))
     except sr.UnknownValueError:
         log.debug("Speech engine could not resolve audio")
     except sr.RequestError:
@@ -162,14 +162,14 @@ def listen_for_binary() -> bool:
 
     while True:
         audio = listen()
-        input = recognize(audio)
+        rec_input = recognize(audio)
 
-        if input:
-            if yes_reply in input.lower():
+        if rec_input:
+            if yes_reply in rec_input.lower():
                 log.debug("'{0}' detected".format(yes_reply))
                 return True
-            elif no_reply in input.lower():
+            elif no_reply in rec_input.lower():
                 log.debug("'{0}' detected".format(no_reply))
                 return False
             else:
-                log.debug("Not detected binary answer in {0}".format(input))
+                log.debug("Not detected binary answer in {0}".format(rec_input))
