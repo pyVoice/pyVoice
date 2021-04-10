@@ -6,6 +6,7 @@
 output/
 test-report.html
 report.html
+logs/
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
