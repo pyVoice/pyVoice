@@ -155,60 +155,61 @@ jobs:
           name: pyVoice_windows-${{ github.sha }}
           path: pyVoice/pyVoice-windows.zip
 
-  build-mac:
-    runs-on: macos-10.15
-    name: "Build for MacOS"
-    needs: test
+  # build-mac:
+  #   runs-on: macos-10.15
+  #   name: "Build for MacOS"
+  #   needs: test
 
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v2
-        with:
-          path: ./pyVoice
+  #   steps:
+  #     - name: Checkout the repository
+  #       uses: actions/checkout@v2
+  #       with:
+  #         path: ./pyVoice
 
-      - name: Setup Python 3.9.4
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.9.4
+  #     - name: Setup Python 3.9.4
+  #       uses: actions/setup-python@v2
+  #       with:
+  #         python-version: 3.9.4
 
-      - name: Install APT packages
-        run: |
-          cd pyVoice
-          sudo chmod +x scripts/setup_linux.sh
-          ./scripts/setup_linux.sh
+  #     - name: Install APT packages
+  #       run: |
+  #         cd pyVoice
+  #         sudo chmod +x scripts/setup_linux.sh
+  #         ./scripts/setup_linux.sh
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1.1.1
-        with:
-          virtualenvs-path: ~/.virtualenvs
-          virtualenvs-create: true
-          virtualenvs-in-project: false
+  #     - name: Install Poetry
+  #       uses: snok/install-poetry@v1.1.1
+  #       with:
+  #         virtualenvs-path: ~/.virtualenvs
+  #         virtualenvs-create: true
+  #         virtualenvs-in-project: false
 
-      - name: Install Poetry dependencies
-        run: |
-          cd pyVoice
-          poetry install
+  #     - name: Install Poetry dependencies
+  #       run: |
+  #         cd pyVoice
+  #         poetry install
 
-      - name: Run pyInstaller
-        run: |
-          cd pyVoice
-          poetry run pyinstaller --noconfirm --onedir --console --icon "pyinstaller/favicon.ico" --name "pyVoice_linux" --add-data "src/data:data/" --add-data ".venv/lib/python3.9/site-packages/pyfiglet:pyfiglet/" "run.py"
+  #     - name: Run pyInstaller
+  #       run: |
+  #         cd pyVoice
+  #         poetry run pyinstaller --noconfirm --onedir --console --icon "pyinstaller/favicon.ico" --name "pyVoice_linux" --add-data "src/data:data/" --add-data ".venv/lib/python3.9/site-packages/pyfiglet:pyfiglet/" "run.py"
 
-      - name: ZIP the contents
-        run: |
-          cd pyVoice
-          zip -r pyVoice-linux.zip dist/pyVoice_linux
+  #     - name: ZIP the contents
+  #       run: |
+  #         cd pyVoice
+  #         zip -r pyVoice-linux.zip dist/pyVoice_linux
 
-      - name: Upload built executable to artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: pyVoice_linux-${{ github.sha }}
-          path: pyVoice/pyVoice-linux.zip
+  #     - name: Upload built executable to artifacts
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: pyVoice_linux-${{ github.sha }}
+  #         path: pyVoice/pyVoice-macos.zip
 
   notify:
     runs-on: ubuntu-latest
     name: "Notify"
-    needs: [build-linux, build-windows, build-mac]
+    # needs: [build-linux, build-windows, build-mac]
+    needs: [build-linux, build-windows]
 
     steps:
       - name: Notify Pushbullet
@@ -216,4 +217,4 @@ jobs:
         env:
           PB_TOKEN: ${{ secrets.PB_TOKEN }}
           PB_TITLE: pyVoice Build  - Success
-          PB_TEXT: The build for Win, Linux and Mac has completed, no errors!
+          PB_TEXT: The build for Windows and Linux has completed!
