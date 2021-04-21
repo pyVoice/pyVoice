@@ -25,7 +25,7 @@
       "notes_file": "./data/json/notes.json"
     }
   },
-  "api_url": "https://pyvoice-device-api.herokuapp.com/devices/",
+  "api_url": "https://api.pyvoice.tech/devices/",
   "registered": true,
   "logger_name": "pyvoice",
   "file_logger_path": "logs/pyvoice.log"
