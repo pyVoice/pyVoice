@@ -19,48 +19,50 @@ settings_file_path = (
 settings_file_data = load_settings()
 
 
-KEYWORD = settings_file_data["keyword"]
+KEYWORD: str = settings_file_data["keyword"]
 
-LANGUAGE = settings_file_data["language"]
-LANGUAGE_SHORT = settings_file_data["language"][:2]
-LOCATION = settings_file_data["location"]
-COUNTRY = settings_file_data["country"]
+LANGUAGE: str = settings_file_data["language"]
+LANGUAGE_SHORT: str = settings_file_data["language"][:2]
+LOCATION: str = settings_file_data["location"]
+COUNTRY: str = settings_file_data["country"]
 
-WEATHER_API_KEY = settings_file_data["weather_api_key"]
-SENTRY_DSN = settings_file_data["sentry_dsn"]
+WEATHER_API_KEY: str = settings_file_data["weather_api_key"]
+SENTRY_DSN: str = settings_file_data["sentry_dsn"]
 
-STT_ENGINE = settings_file_data["stt_engine"]
-TTS_ENGINE = settings_file_data["tts_engine"]
-TTS_SUBTITLE = settings_file_data["tts_subtitle"]
-TTS_AUTODETECT = settings_file_data["tts_autodetect"]
+STT_ENGINE: str = settings_file_data["stt_engine"]
+TTS_ENGINE: str = settings_file_data["tts_engine"]
+TTS_SUBTITLE: str = settings_file_data["tts_subtitle"]
+TTS_AUTODETECT: str = settings_file_data["tts_autodetect"]
 
-VERSION = __version__.__version__
+VERSION: str = __version__.__version__
 
 if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS"):
     # Bundled/installed mode
-    ACTIVATION_SOUND_PATH = settings_file_data["paths"]["bundled"]["activation_sound"]
-    PHRASES_FILE_PATH = settings_file_data["paths"]["bundled"]["phrases_file"]
-    REPLIES_FILE_PATH = settings_file_data["paths"]["bundled"]["replies_file"]
-    NOTES_FILE_PATH = settings_file_data["paths"]["bundled"]["notes_file"]
+    ACTIVATION_SOUND_PATH: str = settings_file_data["paths"]["bundled"][
+        "activation_sound"
+    ]
+    PHRASES_FILE_PATH: str = settings_file_data["paths"]["bundled"]["phrases_file"]
+    REPLIES_FILE_PATH: str = settings_file_data["paths"]["bundled"]["replies_file"]
+    NOTES_FILE_PATH: str = settings_file_data["paths"]["bundled"]["notes_file"]
 else:
     # Dev/normal mode
-    ACTIVATION_SOUND_PATH = settings_file_data["paths"]["dev"]["activation_sound"]
-    PHRASES_FILE_PATH = settings_file_data["paths"]["dev"]["phrases_file"]
-    REPLIES_FILE_PATH = settings_file_data["paths"]["dev"]["replies_file"]
-    NOTES_FILE_PATH = settings_file_data["paths"]["dev"]["notes_file"]
+    ACTIVATION_SOUND_PATH: str = settings_file_data["paths"]["dev"]["activation_sound"]
+    PHRASES_FILE_PATH: str = settings_file_data["paths"]["dev"]["phrases_file"]
+    REPLIES_FILE_PATH: str = settings_file_data["paths"]["dev"]["replies_file"]
+    NOTES_FILE_PATH: str = settings_file_data["paths"]["dev"]["notes_file"]
 
-MAX_NEWS_TICKS = settings_file_data["max_news_ticks"]
+MAX_NEWS_TICKS: str = settings_file_data["max_news_ticks"]
 
-SR_ENERGY_THRESHOLD = settings_file_data["sr_energy_threshold"]
+SR_ENERGY_THRESHOLD: str = settings_file_data["sr_energy_threshold"]
 
-LOGGER_NAME = settings_file_data["logger_name"]
-LOGGER_LEVEL = logging.DEBUG
-FILE_LOGGER_PATH = settings_file_data["file_logger_path"]
+LOGGER_NAME: str = settings_file_data["logger_name"]
+LOGGER_LEVEL: str = logging.DEBUG
+FILE_LOGGER_PATH: str = settings_file_data["file_logger_path"]
 
-API_URL = settings_file_data["api_url"]
-IS_REGISTERED = settings_file_data["registered"]
+API_URL: str = settings_file_data["api_url"]
+IS_REGISTERED: str = settings_file_data["registered"]
 
-ENV = (
+ENV: str = (
     "prod"
     if getattr(sys, "frozen", False) and hasattr(sys, "_MEIPASS") is True
     else "dev"

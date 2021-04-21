@@ -1,4 +1,5 @@
 import json
+from typing import Any
 
 from src import settings
 from src.core.modules import log, tts, stt, replying
@@ -36,7 +37,7 @@ commands = {
 }
 
 
-def check_match(cmd_input):
+def check_match(cmd_input) -> dict:
     cmd = {"name": None, "text": None, "input": cmd_input}
     # get phrases file data as json
     with open(settings.PHRASES_FILE_PATH, encoding="utf-8") as phrases_file:
@@ -58,7 +59,7 @@ test match
 """
 
 
-def test_match(cmd_input):
+def test_match(cmd_input) -> dict:
     cmd = {"name": None, "text": None, "input": cmd_input}
     # get phrases file data as json
     with open(settings.PHRASES_FILE_PATH, encoding="utf-8") as phrases_file:
@@ -104,7 +105,7 @@ def test_match(cmd_input):
                 return cmd
 
 
-def google_match(cmd_input):
+def google_match(cmd_input) -> dict:
     log.debug("Google Search...")
     try:
         cmd = {"name": "google_search", "text": cmd_input, "input": cmd_input}
@@ -114,7 +115,7 @@ def google_match(cmd_input):
         log.debug("No result from Google Search...")
 
 
-def get_match(cmd_input):
+def get_match(cmd_input) -> Any:
     log.debug("Matching...")
 
     cmd = {"name": None, "text": None, "input": cmd_input}
@@ -136,7 +137,7 @@ def get_match(cmd_input):
     log.debug("Couldn't match command from input...")
 
 
-def execute_match(cmd):
+def execute_match(cmd) -> None:
     log.debug("Executing...")
     #
     try:

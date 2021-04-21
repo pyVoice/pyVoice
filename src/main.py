@@ -52,7 +52,7 @@ class Assistant:
         log.info("Bye!")
         sys.exit()
 
-    def run(self):
+    def run(self) -> None:
         self.greet()
 
         while True:
