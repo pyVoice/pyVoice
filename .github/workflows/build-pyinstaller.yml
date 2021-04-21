@@ -17,10 +17,10 @@ jobs:
         with:
           path: ./pyVoice
 
-      - name: Setup Python 3.9.2
+      - name: Setup Python 3.9.4
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9.2
+          python-version: 3.9.4
 
       - name: Install APT packages
         run: |
@@ -72,10 +72,10 @@ jobs:
         with:
           path: ./pyVoice
 
-      - name: Setup Python 3.9.2
+      - name: Setup Python 3.9.4
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9.2
+          python-version: 3.9.4
 
       - name: Install APT packages
         run: |
@@ -122,10 +122,10 @@ jobs:
         with:
           path: ./pyVoice
 
-      - name: Setup Python 3.9.2
+      - name: Setup Python 3.9.4
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9.2
+          python-version: 3.9.4
 
       - name: Install Poetry
         uses: snok/install-poetry@v1.1.1
@@ -166,10 +166,10 @@ jobs:
         with:
           path: ./pyVoice
 
-      - name: Setup Python 3.9.2
+      - name: Setup Python 3.9.4
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9.2
+          python-version: 3.9.4
 
       - name: Install APT packages
         run: |
